@@ -43,7 +43,7 @@ West Nile,Main season,2021,126.0,339.0,214.0,897.2,135.0,6.5,8.0,2.0,5.0
 West Nile,Main season,2022,80.0,357.0,278.0,1045.5,175.0,5.84,10.0,1.0,10.0
 West Nile,Main season,2023,74.0,245.0,172.0,676.4,109.0,6.07,6.0,0.0,3.0
 West Nile,Main season,2024,122.0,349.0,228.0,1107.0,156.0,6.98,17.0,1.0,18.0
-West Nile,Main season,2025,122.0,337.0,,,,,,,
+West Nile,Main season,2025,122.0,337.0,216.0,821.1,149.0,5.37,5.0,0.0,4.0
 Mid-Northern (Acholi and Lango),Main season,1981,70.0,317.0,248.0,1203.1,172.0,6.87,9.0,1.0,17.0
 Mid-Northern (Acholi and Lango),Main season,1982,87.0,354.0,268.0,1288.7,197.0,6.44,9.0,1.0,13.0
 Mid-Northern (Acholi and Lango),Main season,1983,102.0,336.0,235.0,1163.9,179.0,6.41,9.0,1.0,11.0
@@ -88,7 +88,7 @@ Mid-Northern (Acholi and Lango),Main season,2021,94.0,327.0,234.0,954.9,164.0,5.
 Mid-Northern (Acholi and Lango),Main season,2022,84.0,363.0,280.0,1066.6,191.0,5.46,7.0,2.0,7.0
 Mid-Northern (Acholi and Lango),Main season,2023,111.0,352.0,242.0,1050.1,171.0,6.01,5.0,0.0,10.0
 Mid-Northern (Acholi and Lango),Main season,2024,114.0,346.0,233.0,1045.3,179.0,5.77,11.0,1.0,16.0
-Mid-Northern (Acholi and Lango),Main season,2025,85.0,331.0,,,,,,,
+Mid-Northern (Acholi and Lango),Main season,2025,85.0,331.0,247.0,1182.6,187.0,6.21,13.0,1.0,9.0
 Karamoja drylands,Main season,1981,82.0,276.0,195.0,712.4,102.0,6.76,12.0,3.0,8.0
 Karamoja drylands,Main season,1982,87.0,246.0,160.0,588.0,87.0,6.56,10.0,2.0,5.0
 Karamoja drylands,Main season,1983,105.0,289.0,185.0,674.3,107.0,6.16,11.0,1.0,3.0
@@ -133,7 +133,7 @@ Karamoja drylands,Main season,2021,92.0,300.0,209.0,715.1,114.0,6.12,10.0,4.0,5.
 Karamoja drylands,Main season,2022,,,,,,,,,
 Karamoja drylands,Main season,2023,111.0,245.0,135.0,429.2,67.0,6.18,8.0,1.0,3.0
 Karamoja drylands,Main season,2024,91.0,319.0,229.0,962.6,140.0,6.71,9.0,3.0,11.0
-Karamoja drylands,Main season,2025,70.0,325.0,,,,,,,
+Karamoja drylands,Main season,2025,70.0,325.0,256.0,1185.9,162.0,7.17,13.0,2.0,16.0
 Eastern lowlands (Teso),Main season,1981,70.0,312.0,243.0,1187.2,166.0,7.03,6.0,0.0,15.0
 Eastern lowlands (Teso),Main season,1982,87.0,279.0,193.0,906.6,140.0,6.39,8.0,1.0,5.0
 Eastern lowlands (Teso),Main season,1983,102.0,332.0,231.0,1064.7,162.0,6.44,9.0,1.0,10.0
@@ -178,7 +178,7 @@ Eastern lowlands (Teso),Main season,2021,88.0,314.0,227.0,1024.1,149.0,6.75,10.0
 Eastern lowlands (Teso),Main season,2022,84.0,335.0,252.0,1149.9,162.0,6.95,11.0,3.0,10.0
 Eastern lowlands (Teso),Main season,2023,72.0,350.0,279.0,1293.3,201.0,6.32,8.0,1.0,11.0
 Eastern lowlands (Teso),Main season,2024,85.0,352.0,268.0,1302.5,186.0,6.89,17.0,2.0,13.0
-Eastern lowlands (Teso),Main season,2025,70.0,331.0,,,,,,,
+Eastern lowlands (Teso),Main season,2025,70.0,331.0,262.0,1345.1,202.0,6.58,11.0,1.0,10.0
 Mt Elgon highlands,Main season,1981,69.0,319.0,251.0,1403.7,169.0,8.26,7.0,1.0,9.0
 Mt Elgon highlands,Main season,1982,88.0,278.0,191.0,1027.6,141.0,7.24,5.0,0.0,6.0
 Mt Elgon highlands,Main season,1983,72.0,341.0,270.0,1330.9,163.0,8.06,11.0,1.0,9.0
@@ -223,7 +223,7 @@ Mt Elgon highlands,Main season,2021,86.0,338.0,253.0,1425.8,164.0,8.6,11.0,3.0,9
 Mt Elgon highlands,Main season,2022,83.0,369.0,287.0,1550.4,185.0,8.28,10.0,2.0,8.0
 Mt Elgon highlands,Main season,2023,73.0,345.0,273.0,1535.6,191.0,7.97,7.0,1.0,8.0
 Mt Elgon highlands,Main season,2024,85.0,352.0,268.0,1591.7,188.0,8.4,15.0,2.0,12.0
-Mt Elgon highlands,Main season,2025,68.0,336.0,,,,,,,
+Mt Elgon highlands,Main season,2025,68.0,336.0,269.0,1654.4,195.0,8.4,5.0,0.0,14.0
 South-East (Busoga and Tororo),First season,1981,70.0,174.0,105.0,621.5,81.0,7.61,4.0,0.0,8.0
 South-East (Busoga and Tororo),Second season,1981,219.0,322.0,104.0,444.3,59.0,7.39,7.0,1.0,4.0
 South-East (Busoga and Tororo),First season,1982,87.0,187.0,101.0,534.2,73.0,7.23,6.0,0.0,6.0
@@ -313,7 +313,7 @@ South-East (Busoga and Tororo),Second season,2023,238.0,,,,,,,,
 South-East (Busoga and Tororo),First season,2024,39.0,179.0,141.0,604.2,96.0,6.2,13.0,1.0,6.0
 South-East (Busoga and Tororo),Second season,2024,221.0,364.0,144.0,717.2,106.0,6.69,10.0,1.0,12.0
 South-East (Busoga and Tororo),First season,2025,77.0,,,,,,,,
-South-East (Busoga and Tororo),Second season,2025,221.0,331.0,,,,,,,
+South-East (Busoga and Tororo),Second season,2025,221.0,331.0,111.0,423.4,81.0,5.11,7.0,1.0,3.0
 Lake Victoria Crescent,First season,1981,71.0,173.0,103.0,532.0,86.0,6.16,9.0,1.0,7.0
 Lake Victoria Crescent,Second season,1981,227.0,342.0,116.0,484.8,72.0,6.62,10.0,1.0,11.0
 Lake Victoria Crescent,First season,1982,88.0,184.0,97.0,422.5,69.0,5.99,5.0,0.0,7.0
@@ -403,7 +403,7 @@ Lake Victoria Crescent,Second season,2023,259.0,390.0,132.0,570.5,108.0,5.21,4.0
 Lake Victoria Crescent,First season,2024,64.0,166.0,103.0,386.4,76.0,4.96,6.0,0.0,3.0
 Lake Victoria Crescent,Second season,2024,228.0,372.0,145.0,535.9,105.0,4.97,9.0,1.0,4.0
 Lake Victoria Crescent,First season,2025,77.0,200.0,124.0,538.0,97.0,5.4,5.0,0.0,5.0
-Lake Victoria Crescent,Second season,2025,222.0,321.0,,,,,,,
+Lake Victoria Crescent,Second season,2025,222.0,321.0,100.0,346.1,77.0,4.38,6.0,0.0,2.0
 Lake Albert Crescent,First season,1981,71.0,171.0,101.0,515.1,82.0,6.22,7.0,1.0,9.0
 Lake Albert Crescent,Second season,1981,225.0,343.0,119.0,497.1,69.0,7.06,15.0,1.0,10.0
 Lake Albert Crescent,First season,1982,88.0,185.0,98.0,424.1,69.0,6.06,4.0,0.0,6.0
@@ -493,7 +493,7 @@ Lake Albert Crescent,Second season,2023,261.0,362.0,102.0,407.6,78.0,5.15,9.0,1.
 Lake Albert Crescent,First season,2024,109.0,144.0,36.0,142.9,30.0,4.69,3.0,0.0,0.0
 Lake Albert Crescent,Second season,2024,221.0,351.0,131.0,573.7,93.0,6.06,19.0,1.0,7.0
 Lake Albert Crescent,First season,2025,76.0,208.0,133.0,540.3,101.0,5.26,4.0,0.0,5.0
-Lake Albert Crescent,Second season,2025,221.0,323.0,,,,,,,
+Lake Albert Crescent,Second season,2025,221.0,323.0,103.0,402.3,82.0,4.83,5.0,0.0,3.0
 Western highlands (Rwenzori),First season,1981,68.0,169.0,102.0,500.1,76.0,6.51,11.0,2.0,7.0
 Western highlands (Rwenzori),Second season,1981,225.0,362.0,138.0,644.1,82.0,7.79,8.0,1.0,10.0
 Western highlands (Rwenzori),First season,1982,88.0,187.0,100.0,443.4,61.0,7.2,11.0,1.0,6.0
@@ -673,7 +673,7 @@ Cattle corridor (central and southern drylands),Second season,2023,259.0,385.0,1
 Cattle corridor (central and southern drylands),First season,2024,64.0,154.0,91.0,313.3,61.0,4.99,7.0,1.0,2.0
 Cattle corridor (central and southern drylands),Second season,2024,228.0,365.0,138.0,481.2,93.0,4.98,11.0,1.0,6.0
 Cattle corridor (central and southern drylands),First season,2025,107.0,158.0,52.0,204.8,37.0,5.35,4.0,0.0,3.0
-Cattle corridor (central and southern drylands),Second season,2025,221.0,319.0,,,,,,,
+Cattle corridor (central and southern drylands),Second season,2025,221.0,319.0,99.0,329.4,75.0,4.26,4.0,0.0,3.0
 South-Western highlands,First season,1981,71.0,169.0,99.0,428.6,70.0,6.03,7.0,1.0,6.0
 South-Western highlands,Second season,1981,240.0,336.0,97.0,380.1,54.0,6.85,8.0,2.0,2.0
 South-Western highlands,First season,1982,89.0,172.0,84.0,335.0,52.0,6.35,13.0,1.0,2.0
@@ -763,4 +763,4 @@ South-Western highlands,Second season,2023,250.0,389.0,140.0,562.0,99.0,5.55,6.0
 South-Western highlands,First season,2024,98.0,144.0,47.0,185.1,27.0,6.64,5.0,0.0,4.0
 South-Western highlands,Second season,2024,270.0,379.0,110.0,564.1,75.0,7.4,18.0,1.0,12.0
 South-Western highlands,First season,2025,94.0,160.0,67.0,263.5,44.0,5.76,7.0,1.0,3.0
-South-Western highlands,Second season,2025,252.0,354.0,,,,,,,
+South-Western highlands,Second season,2025,252.0,354.0,103.0,393.5,78.0,4.93,6.0,0.0,2.0

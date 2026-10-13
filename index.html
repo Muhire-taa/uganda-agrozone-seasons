@@ -141,7 +141,18 @@ body { background: var(--color-bg); color: var(--color-fg); font-family: var(--f
 .az-method p { margin: 0; }
 .az-failed { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: inherit; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
 .az-failed::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
-.az-map-row { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; }
+.az-map-row { grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); align-items: start; }
+.az-mini-wrap { overflow-x: auto; }
+.az-mini { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; margin-top: var(--cds-gap-xs); }
+.az-mini th, .az-mini td { padding: 5px 8px; border-bottom: 1px solid var(--color-border-line); text-align: right; white-space: nowrap; }
+.az-mini th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); vertical-align: bottom; }
+.az-mini th:first-child, .az-mini td:first-child { text-align: left; white-space: normal; min-width: 9.5rem; }
+.az-mini th { white-space: normal; min-width: 4.5rem; }
+.az-mini td.yr { color: var(--color-fg); }
+.az-years { margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.55; color: var(--color-fg); }
+.az-years b { font-weight: var(--cds-font-weight-medium); }
+.az-season-block { display: grid; gap: var(--cds-gap-xs); padding-bottom: var(--cds-gap-sm); }
+.az-season-block + .az-season-block { border-top: 1px solid var(--color-border-line); padding-top: var(--cds-gap-sm); }
 .az-map { min-height: 380px; }
 .az-map path.zone { cursor: pointer; }
 .az-map path.zone:focus-visible { outline: none; stroke: var(--color-fg); stroke-width: 2; }
@@ -169,19 +180,20 @@ body { background: var(--color-bg); color: var(--color-fg); font-family: var(--f
 
   <section class="az-section" id="board">
     <h2 class="az-h2">Which seasons have shifted</h2>
-    <p class="az-intro">For every zone and rainy season: how much later (+) or earlier (−) the rains now start and end, and how the season itself has changed. Figures in bold are clear trends over 1981 to 2025, the rest could be chance. Pick a row to see that zone below.</p>
+    <p class="az-intro">Every figure compares the average for 2006 to 2025 with the average for 1981 to 2000, for each zone and rainy season: how much later (+) or earlier (−) the rains start and end, and how the season itself has changed. Figures in bold are clear trends over 1981 to 2025, the rest could be chance. Pick a row to see that zone below.</p>
     <article class="az-card">
       <div class="az-tablewrap">
+        <p class="az-note" id="board-periods">Change from the 1981 to 2000 average to the 2006 to 2025 average.</p>
         <table class="az-table" id="change-table" data-source="season_change" data-row-key="zone,season">
           <thead><tr>
             <th data-field="zone">Zone</th>
             <th data-field="season">Season</th>
-            <th data-field="start_shift_days">Rains start (days)</th>
-            <th data-field="end_shift_days">Rains end (days)</th>
-            <th data-field="length_change_days">Season length (days)</th>
-            <th data-field="dry_spell_change_days">Longest dry spell (days)</th>
+            <th data-field="start_shift_days">Rains start, days later (+) or earlier (−)</th>
+            <th data-field="end_shift_days">Rains end, days later (+) or earlier (−)</th>
+            <th data-field="length_change_days">Season length, days</th>
+            <th data-field="dry_spell_change_days">Longest dry spell, days</th>
             <th data-field="rain_per_rainy_day_change_pct">Rain per rainy day</th>
-            <th data-field="heavy_days_change">Heavy-rain days</th>
+            <th data-field="heavy_days_change">Heavy-rain days a season</th>
             <th data-field="season_rain_change_pct">Season rain</th>
           </tr></thead>
           <tbody></tbody>
@@ -206,8 +218,8 @@ body { background: var(--color-bg); color: var(--color-fg); font-family: var(--f
       </article>
       <article class="az-card" id="zone-summary-card">
         <h3 class="az-card-title" id="summary-title">What changed in this zone</h3>
-        <div class="az-summary" id="zone-summary" data-source="season_change"></div>
-        <p class="az-note">2006 to 2025 compared with 1981 to 2000. Changes in bold are clear trends over 1981 to 2025; the rest could be chance.</p>
+        <div class="az-summary" id="zone-summary" data-source="season_change seasons_by_year"></div>
+        <p class="az-note">Averages are for 1981 to 2000 and 2006 to 2025; 2024 and 2025 are single years. Changes in bold are clear trends over 1981 to 2025; the rest could be chance. Dates are approximate to within a few days.</p>
       </article>
     </div>
 
@@ -275,7 +287,7 @@ body { background: var(--color-bg); color: var(--color-fg); font-family: var(--f
   const EARLY = [1981, 2000], RECENT = [2006, 2025];
   const f0 = d3.format(',.0f'), f1 = d3.format('.1f');
   const signed = (v, digits) => { const r = Number(d3.format(`.${digits}f`)(v)); return (r > 0 ? '+' : r < 0 ? '−' : '') + d3.format(`.${digits}f`)(Math.abs(r)); };
-  const doyLabel = (d) => { const dt = new Date(Date.UTC(2001, 0, 1) + (d - 1) * 864e5); return d3.utcFormat('%-d %b')(dt); };
+  const doyLabel = (d, year) => { const dt = new Date(Date.UTC(year || 2001, 0, 1) + (Math.round(d) - 1) * 864e5); return d3.utcFormat('%-d %b')(dt); };
 
   function status(ids) {
     const s = ids.map((id) => dash.data(id).status);
@@ -447,35 +459,97 @@ body { background: var(--color-bg); color: var(--color-fg); font-family: var(--f
   }
 
   // ---------- zone summary ----------
+  const LAST_YEARS = [2024, 2025];
   function drawSummary() {
     const box = document.getElementById('zone-summary');
     const zone = currentZone();
     document.getElementById('summary-title').textContent = `What changed in ${zone}`;
-    const st = status(['season_change']);
+    const st = status(['season_change', 'seasons_by_year']);
     if (st !== 'ok') { if (st === 'error') failed(box); else box.textContent = ''; return; }
     box.textContent = '';
     const rows = dash.data('season_change').data.filter((r) => r.zone === zone);
+    const yearly = dash.data('seasons_by_year').data.filter((r) => r.zone === zone);
     const days = (v) => `${f0(Math.abs(v))} day${Math.round(Math.abs(v)) === 1 ? '' : 's'}`;
+    const dateText = (d, year) => (isNaN(d) ? '—' : doyLabel(d, year) + (d > 365 ? ' (next year)' : ''));
     rows.forEach((r) => {
+      const block = el('div', 'az-season-block');
+      block.appendChild(el('span', 'season', r.season));
+
+      // Long-term change, with the periods named
       const p = el('p');
-      p.appendChild(el('span', 'season', r.season));
       const parts = [];
       const add = (text, pval) => parts.push([text, num(pval) < 0.05]);
       const s = num(r.start_shift_days), e = num(r.end_shift_days), l = num(r.length_change_days), dsp = num(r.dry_spell_change_days), rain = num(r.season_rain_change_pct), int = num(r.rain_per_rainy_day_change_pct), hv = num(r.heavy_days_change);
       const shift = (v, what) => (Math.round(v) === 0 ? `${what} on about the same date` : `${what} ${days(v)} ${v > 0 ? 'later' : 'earlier'}`);
-      add(shift(s, 'The rains start'), r.start_p);
+      add(shift(s, 'the rains start'), r.start_p);
       add(shift(e, 'end'), r.end_p);
-      add(Math.round(l) === 0 ? 'the season is about as long as before' : `the season is ${days(l)} ${l > 0 ? 'longer' : 'shorter'}`, r.length_p);
+      add(Math.round(l) === 0 ? 'the season is about as long' : `the season is ${days(l)} ${l > 0 ? 'longer' : 'shorter'}`, r.length_p);
       add(Math.abs(dsp) < 0.5 ? 'the longest dry spell is about the same' : `the longest dry spell is ${f1(Math.abs(dsp))} days ${dsp > 0 ? 'longer' : 'shorter'}`, r.dry_spell_p);
       add(Math.abs(rain) < 1 ? 'season rain is about the same' : `season rain is ${f0(Math.abs(rain))}% ${rain > 0 ? 'higher' : 'lower'}`, r.season_rain_p);
       add(Math.abs(int) < 1 ? 'rain per rainy day is about the same' : `rain per rainy day is ${f0(Math.abs(int))}% ${int > 0 ? 'heavier' : 'lighter'}`, r.rain_per_rainy_day_p);
       add(Math.abs(hv) < 0.5 ? 'heavy-rain days are about as frequent' : `there are ${f1(Math.abs(hv))} ${hv > 0 ? 'more' : 'fewer'} heavy-rain days a season`, r.heavy_days_p);
+      p.appendChild(document.createTextNode('Compared with 1981 to 2000, in 2006 to 2025 '));
       parts.forEach(([text, sig], i) => {
-        const node = sig ? el('b', null, text) : document.createTextNode(text);
-        p.appendChild(node);
-        p.appendChild(document.createTextNode(i === 0 ? ' and ' : i === 1 ? '; ' : i === parts.length - 1 ? '.' : '; '));
+        p.appendChild(sig ? el('b', null, text) : document.createTextNode(text));
+        p.appendChild(document.createTextNode(i === 0 ? ' and ' : i === parts.length - 1 ? '.' : '; '));
       });
-      box.appendChild(p);
+      block.appendChild(p);
+
+      // Averages next to the last two years
+      const yrs = LAST_YEARS.map((y) => yearly.find((d) => d.season === r.season && num(d.year) === y) || {});
+      const measures = [
+        ['Rains start', dateText(num(r.start_early_doy)), dateText(num(r.start_recent_doy)), yrs.map((y, i) => dateText(num(y.onset_doy), LAST_YEARS[i]))],
+        ['Rains end', dateText(num(r.end_early_doy)), dateText(num(r.end_recent_doy)), yrs.map((y, i) => dateText(num(y.end_doy), LAST_YEARS[i]))],
+        ['Season length, days', f0(num(r.length_early_days)), f0(num(r.length_recent_days)), yrs.map((y) => (isNaN(num(y.length_days)) ? '—' : f0(num(y.length_days))))],
+        ['Longest dry spell, days', f1(num(r.dry_spell_early_days)), f1(num(r.dry_spell_recent_days)), yrs.map((y) => (isNaN(num(y.longest_dry_spell)) ? '—' : f0(num(y.longest_dry_spell))))],
+        ['Season rain, mm', f0(num(r.season_rain_early_mm)), f0(num(r.season_rain_recent_mm)), yrs.map((y) => (isNaN(num(y.rain_mm)) ? '—' : f0(num(y.rain_mm))))],
+        ['Rain per rainy day, mm', f1(num(r.rain_per_rainy_day_early_mm)), f1(num(r.rain_per_rainy_day_recent_mm)), yrs.map((y) => (isNaN(num(y.mm_per_rainy_day)) ? '—' : f1(num(y.mm_per_rainy_day))))],
+        ['Heavy-rain days', f1(num(r.heavy_days_early)), f1(num(r.heavy_days_recent)), yrs.map((y) => (isNaN(num(y.heavy_days)) ? '—' : f0(num(y.heavy_days))))],
+      ];
+      const wrap = el('div', 'az-mini-wrap');
+      const t = el('table', 'az-mini');
+      const thead = el('thead'); const hr = el('tr');
+      ['', 'Average 1981 to 2000', 'Average 2006 to 2025', ...LAST_YEARS.map(String)].forEach((h) => hr.appendChild(el('th', null, h)));
+      thead.appendChild(hr); t.appendChild(thead);
+      const tb = el('tbody');
+      measures.forEach(([label, a1, a2, ys]) => {
+        const tr = el('tr');
+        tr.appendChild(el('td', null, label)); tr.appendChild(el('td', null, a1)); tr.appendChild(el('td', null, a2));
+        ys.forEach((v) => tr.appendChild(el('td', 'yr', v)));
+        tb.appendChild(tr);
+      });
+      t.appendChild(tb); wrap.appendChild(t); block.appendChild(wrap);
+
+      // Each of the last two years against the 2006 to 2025 average
+      LAST_YEARS.forEach((year, i) => {
+        const y = yrs[i];
+        const line = el('p', 'az-years');
+        line.appendChild(el('b', null, `${year}: `));
+        const on = num(y.onset_doy), end = num(y.end_doy), len = num(y.length_days), rn = num(y.rain_mm);
+        const bits = [];
+        if (isNaN(on)) bits.push('no clear start to this season was found');
+        else {
+          const d = on - num(r.start_recent_doy);
+          bits.push(Math.abs(d) < 1.5 ? 'the rains started close to the usual date' : `the rains started ${days(d)} ${d > 0 ? 'later' : 'earlier'} than usual`);
+          if (isNaN(end)) bits.push(year === 2025 && num(r.end_recent_doy) > 320 ? 'the season had not clearly ended by 31 December 2025, where the data stops' : 'no clear end to the season was found');
+          else {
+            const de = end - num(r.end_recent_doy);
+            bits.push(Math.abs(de) < 1.5 ? 'ended close to the usual date' : `ended ${days(de)} ${de > 0 ? 'later' : 'earlier'}`);
+            const dl = len - num(r.length_recent_days);
+            bits.push(Math.abs(dl) < 1.5 ? 'the season was about as long as usual' : `the season was ${days(dl)} ${dl > 0 ? 'longer' : 'shorter'}`);
+            const pr = (rn / num(r.season_rain_recent_mm) - 1) * 100;
+            bits.push(Math.abs(pr) < 3 ? 'with about the usual rain' : `with ${f0(Math.abs(pr))}% ${pr > 0 ? 'more' : 'less'} rain`);
+          }
+        }
+        let text = bits[0];
+        if (bits.length === 2) text += ', and ' + bits[1];
+        if (bits.length === 4) text += ` and ${bits[1]}; ${bits[2]}, ${bits[3]}`;
+        line.appendChild(document.createTextNode(text.charAt(0).toUpperCase() + text.slice(1) + '.'));
+        block.appendChild(line);
+      });
+      const usual = el('p', 'az-note', '"Usual" here means the 2006 to 2025 average.');
+      if (rows.indexOf(r) === rows.length - 1) block.appendChild(usual);
+      box.appendChild(block);
     });
   }
 
@@ -551,8 +625,8 @@ body { background: var(--color-bg); color: var(--color-fg); font-family: var(--f
         if (!isNaN(hit.on) && !isNaN(hit.end)) hl.attr('visibility', 'visible').attr('x', x(hit.on) - 1).attr('width', Math.max(2, x(hit.end) - x(hit.on)) + 2).attr('y', y(yr) - 1).attr('height', y.bandwidth() + 2);
         else hl.attr('visibility', 'hidden');
         tip.show(`${yr}, ${hit.season}`, isNaN(hit.on) || isNaN(hit.end) ? [{ label: 'No clear season found', value: '' }] : [
-          { label: 'Rains started', value: doyLabel(hit.on) },
-          { label: 'Rains ended', value: doyLabel(hit.end) + (hit.end > 365 ? ' (next year)' : '') },
+          { label: 'Rains started', value: doyLabel(hit.on, hit.year) },
+          { label: 'Rains ended', value: doyLabel(hit.end, hit.year) + (hit.end > 365 ? ' (next year)' : '') },
           { label: 'Length', value: `${f0(hit.len)} days` },
           { label: 'Rain', value: `${f0(hit.rain)} mm` },
           { label: 'Longest dry spell', value: `${f0(hit.dry)} days` },
