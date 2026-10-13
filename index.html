@@ -141,6 +141,16 @@ body { background: var(--color-bg); color: var(--color-fg); font-family: var(--f
 .az-method p { margin: 0; }
 .az-failed { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: inherit; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
 .az-failed::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+.az-map-row { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; }
+.az-map { min-height: 380px; }
+.az-map path.zone { cursor: pointer; }
+.az-map path.zone:focus-visible { outline: none; stroke: var(--color-fg); stroke-width: 2; }
+.az-town { fill: var(--color-fg); font-size: 10.5px; font-family: var(--font-anthropic-sans); paint-order: stroke; stroke: var(--color-panel); stroke-width: 3px; stroke-linejoin: round; }
+.az-water { fill: var(--color-fg-muted); font-size: 10.5px; font-style: italic; font-family: var(--font-anthropic-sans); }
+.az-summary { display: grid; gap: var(--cds-gap-sm); }
+.az-summary p { margin: 0; line-height: 1.6; font-size: var(--cds-font-size-body); }
+.az-summary b { font-weight: var(--cds-font-weight-medium); }
+.az-summary .season { display: block; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 2px; }
 [data-dash-source-state=empty] { color: transparent; }
 [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
 </style>
@@ -185,6 +195,20 @@ body { background: var(--color-bg); color: var(--color-fg); font-family: var(--f
       <label for="zone-select">Zone</label>
       <select id="zone-select" data-source="zones"></select>
       <span class="az-zone-facts" id="zone-facts"></span>
+    </div>
+
+    <div class="az-grid az-map-row">
+      <article class="az-card" id="map-card">
+        <h3 class="az-card-title" id="map-title">Where the zone is</h3>
+        <div class="az-legend" id="map-legend"></div>
+        <div class="az-chart az-map" id="zone-map" data-source="zones_map"></div>
+        <p class="az-note">Select a zone on the map or from the list above.</p>
+      </article>
+      <article class="az-card" id="zone-summary-card">
+        <h3 class="az-card-title" id="summary-title">What changed in this zone</h3>
+        <div class="az-summary" id="zone-summary" data-source="season_change"></div>
+        <p class="az-note">2006 to 2025 compared with 1981 to 2000. Changes in bold are clear trends over 1981 to 2025; the rest could be chance.</p>
+      </article>
     </div>
 
     <article class="az-card" id="strips-card">
@@ -361,6 +385,98 @@ body { background: var(--color-bg); color: var(--color-fg); font-family: var(--f
     const row = d.data.find((r) => r.zone === z);
     facts.textContent = row ? `${row.pattern === 'two seasons' ? 'Two rainy seasons a year' : 'One long main season'}. Built from FEWS NET zones ${row.fews_livelihood_zones}.` : '';
     document.getElementById('strips-title').textContent = `Rainy seasons in ${z}, every year since 1981`;
+  }
+
+
+  // ---------- locator map ----------
+  const TOWNS = [['Kampala', 32.58, 0.32], ['Gulu', 32.30, 2.78], ['Arua', 30.91, 3.02], ['Mbarara', 30.66, -0.61],
+    ['Mbale', 34.18, 1.08], ['Moroto', 34.65, 2.53], ['Hoima', 31.35, 1.43], ['Fort Portal', 30.27, 0.67],
+    ['Jinja', 33.20, 0.44], ['Soroti', 33.61, 1.71], ['Kabale', 29.99, -1.25], ['Lira', 32.90, 2.25]];
+  function drawMap() {
+    const box = document.getElementById('zone-map');
+    const st = status(['zones_map']);
+    const zone = currentZone();
+    document.getElementById('map-title').textContent = `Where ${zone} is`;
+    if (st !== 'ok') { if (st === 'error') failed(box); else box.textContent = ''; return; }
+    const feats = dash.data('zones_map').data.features;
+    const country = feats.find((f) => f.properties.kind === 'country');
+    const leftOut = feats.find((f) => f.properties.kind === 'left_out');
+    const zones = feats.filter((f) => f.properties.kind === 'zone');
+    legend(document.getElementById('map-legend'), [
+      { label: zone, color: dash.colors[0] },
+      { label: 'Other zones', color: 'var(--color-border-line)' },
+      { label: 'Not included (parks, lakeshores, towns)', color: 'var(--cds-chart-muted)' },
+    ]);
+    box.textContent = '';
+    const W = Math.max(260, box.clientWidth || 400);
+    const H = Math.round(Math.min(W * 1.02, 460));
+    box.style.minHeight = H + 'px';
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', `Map of Uganda with ${zone} highlighted`);
+    const proj = d3.geoMercator().fitExtent([[10, 10], [W - 10, H - 10]], country);
+    const path = d3.geoPath(proj);
+    svg.append('path').datum(country).attr('d', path).style('fill', 'var(--cds-chart-grid)').style('stroke', 'var(--color-fg-muted)').attr('stroke-width', 1);
+    if (leftOut) svg.append('path').datum(leftOut).attr('d', path).style('fill', 'var(--cds-chart-muted)').attr('fill-opacity', 0.55);
+    const tip = tooltip(box);
+    svg.append('g').selectAll('path').data(zones).join('path').attr('class', 'zone')
+      .attr('d', path).attr('tabindex', 0).attr('aria-label', (d) => d.properties.name)
+      .style('fill', (d) => (d.properties.name === zone ? dash.colors[0] : 'var(--color-border-line)'))
+      .style('stroke', (d) => (d.properties.name === zone ? 'var(--color-fg)' : 'var(--color-panel)'))
+      .attr('stroke-width', (d) => (d.properties.name === zone ? 1.5 : 1))
+      .on('pointermove', function (ev, d) {
+        const [px, py] = d3.pointer(ev, box);
+        if (d.properties.name !== zone) d3.select(this).style('fill', 'var(--cds-chart-muted)');
+        tip.show(d.properties.name, [{ label: d.properties.name === zone ? 'Selected' : 'Click to select', value: '' }], px, py);
+      })
+      .on('pointerleave', function (ev, d) {
+        if (d.properties.name !== zone) d3.select(this).style('fill', 'var(--color-border-line)');
+        tip.hide();
+      })
+      .on('click', (ev, d) => dash.setParams({ zone: d.properties.name }))
+      .on('keydown', (ev, d) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); dash.setParams({ zone: d.properties.name }); } });
+    // Bring the selected zone's outline to the front
+    svg.selectAll('path.zone').filter((d) => d.properties.name === zone).raise();
+    const towns = svg.append('g').attr('pointer-events', 'none');
+    TOWNS.forEach(([name, lon, lat]) => {
+      const [x, y] = proj([lon, lat]);
+      towns.append('circle').attr('cx', x).attr('cy', y).attr('r', 2.5).style('fill', 'var(--color-fg)').style('stroke', 'var(--color-panel)').attr('stroke-width', 1);
+      const right = x < W - 70;
+      towns.append('text').attr('class', 'az-town').attr('x', right ? x + 5 : x - 5).attr('y', y + 3.5).attr('text-anchor', right ? 'start' : 'end').text(name);
+    });
+    const [lx, ly] = proj([32.9, -0.75]);
+    svg.append('text').attr('class', 'az-water').attr('x', lx).attr('y', Math.min(H - 6, ly)).attr('text-anchor', 'middle').text('Lake Victoria');
+  }
+
+  // ---------- zone summary ----------
+  function drawSummary() {
+    const box = document.getElementById('zone-summary');
+    const zone = currentZone();
+    document.getElementById('summary-title').textContent = `What changed in ${zone}`;
+    const st = status(['season_change']);
+    if (st !== 'ok') { if (st === 'error') failed(box); else box.textContent = ''; return; }
+    box.textContent = '';
+    const rows = dash.data('season_change').data.filter((r) => r.zone === zone);
+    const days = (v) => `${f0(Math.abs(v))} day${Math.round(Math.abs(v)) === 1 ? '' : 's'}`;
+    rows.forEach((r) => {
+      const p = el('p');
+      p.appendChild(el('span', 'season', r.season));
+      const parts = [];
+      const add = (text, pval) => parts.push([text, num(pval) < 0.05]);
+      const s = num(r.start_shift_days), e = num(r.end_shift_days), l = num(r.length_change_days), dsp = num(r.dry_spell_change_days), rain = num(r.season_rain_change_pct), int = num(r.rain_per_rainy_day_change_pct), hv = num(r.heavy_days_change);
+      const shift = (v, what) => (Math.round(v) === 0 ? `${what} on about the same date` : `${what} ${days(v)} ${v > 0 ? 'later' : 'earlier'}`);
+      add(shift(s, 'The rains start'), r.start_p);
+      add(shift(e, 'end'), r.end_p);
+      add(Math.round(l) === 0 ? 'the season is about as long as before' : `the season is ${days(l)} ${l > 0 ? 'longer' : 'shorter'}`, r.length_p);
+      add(Math.abs(dsp) < 0.5 ? 'the longest dry spell is about the same' : `the longest dry spell is ${f1(Math.abs(dsp))} days ${dsp > 0 ? 'longer' : 'shorter'}`, r.dry_spell_p);
+      add(Math.abs(rain) < 1 ? 'season rain is about the same' : `season rain is ${f0(Math.abs(rain))}% ${rain > 0 ? 'higher' : 'lower'}`, r.season_rain_p);
+      add(Math.abs(int) < 1 ? 'rain per rainy day is about the same' : `rain per rainy day is ${f0(Math.abs(int))}% ${int > 0 ? 'heavier' : 'lighter'}`, r.rain_per_rainy_day_p);
+      add(Math.abs(hv) < 0.5 ? 'heavy-rain days are about as frequent' : `there are ${f1(Math.abs(hv))} ${hv > 0 ? 'more' : 'fewer'} heavy-rain days a season`, r.heavy_days_p);
+      parts.forEach(([text, sig], i) => {
+        const node = sig ? el('b', null, text) : document.createTextNode(text);
+        p.appendChild(node);
+        p.appendChild(document.createTextNode(i === 0 ? ' and ' : i === 1 ? '; ' : i === parts.length - 1 ? '.' : '; '));
+      });
+      box.appendChild(p);
+    });
   }
 
   // ---------- season strips ----------
@@ -577,6 +693,8 @@ body { background: var(--color-bg); color: var(--color-fg); font-family: var(--f
     fillMarks();
     drawBoard();
     drawPicker();
+    drawMap();
+    drawSummary();
     drawStrips();
     drawCalendar();
     drawMetric('m-length', 'length_days', 'length_early_days', 'length_recent_days', f0, ' days');

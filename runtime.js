@@ -7,6 +7,7 @@
     rain_calendar_by_decade: 'data/rain_calendar_by_decade.csv',
     yearly: 'data/yearly.csv',
     zones: 'data/zones.csv',
+    zones_map: 'data/zones_map.geojson',
   };
   const state = {};
   const listeners = [];
@@ -30,6 +31,11 @@
     fetch(SOURCES[id])
       .then((r) => { if (!r.ok) throw new Error(r.status + ' ' + r.statusText); return r.text(); })
       .then((text) => {
+        if (SOURCES[id].endsWith('.geojson')) {
+          state[id] = { status: 'ok', data: JSON.parse(text), columns: [], meta: [] };
+          notify();
+          return;
+        }
         const rows = d3.csvParse(text);
         state[id] = { status: 'ok', data: rows, columns: rows.columns, meta: [] };
         notify();
