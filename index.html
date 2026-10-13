@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Uganda Agro-Zone Seasons</title>
+<meta name="description" content="How the rainy seasons of Uganda's agro-ecological zones have changed from 1981 to 2025: start and end of the rains, season length, dry spells and heavy rain, from daily CHIRPS rainfall.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap">
+<style>
+:root {
+  color-scheme: light;
+  --font-anthropic-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-anthropic-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --cds-font-size-caption: 0.8125rem;
+  --cds-font-size-body: 0.9375rem;
+  --cds-font-size-heading: 1.0625rem;
+  --cds-font-size-title: 2rem;
+  --cds-font-weight-medium: 600;
+  --cds-gap-xs: 0.25rem; --cds-gap-sm: 0.5rem; --cds-gap-md: 1rem; --cds-gap-lg: 1.5rem; --cds-gap-xl: 2.5rem;
+  --cds-pad-xs: 0.375rem; --cds-pad-sm: 0.625rem; --cds-pad-md: 1rem; --cds-pad-lg: 1.25rem; --cds-pad-xl: 2.5rem;
+  --cds-radius: 8px;
+  --cds-dur-slow: 240ms;
+
+  --color-bg: #f6f6f3;
+  --color-panel: #fcfcfb;
+  --color-fg: #141413;
+  --color-fg-muted: #5c5b57;
+  --color-border-line: #e2e1dc;
+  --color-ok: #1b7a3f;
+  --color-warn: #b86e00;
+  --color-bad: #c2362f;
+  --cds-chart-grid: #ebeae5;
+  --cds-chart-axis: #c9c8c2;
+  --cds-chart-muted: #b9b8b1;
+  --cds-chart-reference: #8f8e88;
+  --cds-surface-popover: #ffffff;
+  --cds-border: #d9d8d2;
+  --cds-shadow-popover: 0 4px 16px rgba(20, 20, 19, 0.12);
+  --cds-text-secondary: #5c5b57;
+  --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a; --series-4: #eda100;
+  --series-5: #e87ba4; --series-6: #008300; --series-7: #4a3aa7; --series-8: #e34948;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-bg: #121211;
+    --color-panel: #1a1a19;
+    --color-fg: #f4f3ee;
+    --color-fg-muted: #b3b2aa;
+    --color-border-line: #33332f;
+    --color-ok: #5fbf7f;
+    --color-warn: #e0a03a;
+    --color-bad: #ef7b72;
+    --cds-chart-grid: #2a2a27;
+    --cds-chart-axis: #45443f;
+    --cds-chart-muted: #5d5c56;
+    --cds-chart-reference: #8a8983;
+    --cds-surface-popover: #24241f;
+    --cds-border: #3d3d38;
+    --cds-shadow-popover: 0 4px 16px rgba(0, 0, 0, 0.45);
+    --cds-text-secondary: #b3b2aa;
+    --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500;
+    --series-5: #d55181; --series-6: #008300; --series-7: #9085e9; --series-8: #e66767;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #121211; --color-panel: #1a1a19; --color-fg: #f4f3ee; --color-fg-muted: #b3b2aa; --color-border-line: #33332f;
+  --color-ok: #5fbf7f; --color-warn: #e0a03a; --color-bad: #ef7b72;
+  --cds-chart-grid: #2a2a27; --cds-chart-axis: #45443f; --cds-chart-muted: #5d5c56; --cds-chart-reference: #8a8983;
+  --cds-surface-popover: #24241f; --cds-border: #3d3d38; --cds-shadow-popover: 0 4px 16px rgba(0, 0, 0, 0.45); --cds-text-secondary: #b3b2aa;
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --series-4: #c98500;
+  --series-5: #d55181; --series-6: #008300; --series-7: #9085e9; --series-8: #e66767;
+}
+html, body { margin: 0; }
+[hidden] { display: none !important; }
+body { background: var(--color-bg); color: var(--color-fg); font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); -webkit-font-smoothing: antialiased; }
+#dash-root { padding: max(16px, env(safe-area-inset-top, 0px)) clamp(16px, 4vw, 48px) max(32px, env(safe-area-inset-bottom, 0px)); }
+.dash-skeleton { color: transparent !important; background: var(--cds-chart-grid); border-radius: 4px; }
+.az-sources { display: grid; gap: var(--cds-gap-xs); font-size: var(--cds-font-size-body); line-height: 1.6; max-width: 52rem; }
+.az-sources ul { margin: 0; padding-left: 1.2rem; }
+.az-sources a { color: var(--color-fg); }
+.az-foot { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+@media (max-width: 600px) { :root { --cds-font-size-title: 1.6rem; } }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="runtime.js"></script>
+</head>
+<body>
+<div id="dash-root">
+<style>
+.az { display: grid; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); max-width: 74rem; margin-inline: auto; padding-block: var(--cds-pad-md) var(--cds-pad-xl); }
+.az-head { display: grid; gap: var(--cds-gap-sm); max-width: 50rem; }
+.az-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.15; margin: 0; text-wrap: balance; }
+.az-lede { margin: 0; line-height: 1.6; font-size: var(--cds-font-size-body); }
+.az-lede b { font-weight: var(--cds-font-weight-medium); font-variant-numeric: tabular-nums; }
+.az-meta { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.5; }
+.az-section { display: grid; gap: var(--cds-gap-md); }
+.az-h2 { margin: 0; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); text-wrap: balance; }
+.az-intro { margin: 0; color: var(--color-fg-muted); line-height: 1.55; max-width: 50rem; font-size: var(--cds-font-size-body); }
+.az-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-sm); min-width: 0; align-content: start; }
+.az-card-title { margin: 0; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
+.az-note { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.5; }
+.az-grid { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.az-chart { position: relative; min-width: 0; }
+.az-chart svg { display: block; overflow: visible; }
+.az-h200 { min-height: 200px; } .az-h260 { min-height: 260px; } .az-h600 { min-height: 600px; }
+.az-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs) var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); align-items: center; }
+.az-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.az-sw { width: 0.75rem; height: 0.75rem; border-radius: 3px; display: inline-block; flex: none; }
+.az-ln { width: 16px; height: 2px; border-radius: 1px; display: inline-block; }
+.az-dl { width: 16px; border-top: 2px dashed var(--color-fg-muted); display: inline-block; }
+.az-picker { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; }
+.az-picker label { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); }
+.az-picker select { font: inherit; font-size: var(--cds-font-size-body); padding: 6px 10px; border-radius: var(--cds-radius); border: 1px solid var(--color-border-line); background: var(--color-panel); color: var(--color-fg); max-width: 100%; }
+.az-picker select:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+.az-zone-facts { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.az-tablewrap { overflow-x: auto; }
+.az-table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.az-table th, .az-table td { padding: 8px 10px; border-bottom: 1px solid var(--color-border-line); text-align: right; white-space: nowrap; }
+.az-table th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); vertical-align: bottom; white-space: normal; min-width: 5.5rem; }
+.az-table th:nth-child(-n+2), .az-table td:nth-child(-n+2) { text-align: left; }
+.az-table td:first-child { white-space: normal; min-width: 10rem; }
+.az-table tbody tr { cursor: pointer; }
+.az-table tbody tr:hover td { background: var(--cds-surface-popover); }
+.az-table tbody tr.is-picked td { background: var(--cds-surface-popover); }
+.az-table tbody tr.is-picked td:first-child { box-shadow: inset 3px 0 0 var(--color-fg); }
+.az-table td.sig { font-weight: var(--cds-font-weight-medium); color: var(--color-fg); }
+.az-table td.faint { color: var(--color-fg-muted); }
+.az-tip { position: absolute; pointer-events: none; z-index: 3; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); display: grid; gap: 2px; min-width: 10rem; font-variant-numeric: tabular-nums; }
+.az-tip-head { color: var(--cds-text-secondary); }
+.az-tip-row { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+.az-tip-row .k { display: inline-flex; gap: 6px; align-items: center; }
+.az-axis text { fill: var(--color-fg-muted); font-size: 11px; font-family: var(--font-anthropic-sans); }
+.az-gridline { stroke: var(--cds-chart-grid); stroke-width: 1; }
+.az-label { fill: var(--color-fg); font-size: 11px; font-family: var(--font-anthropic-sans); font-variant-numeric: tabular-nums; }
+.az-label-muted { fill: var(--color-fg-muted); font-size: 11px; font-family: var(--font-anthropic-sans); }
+.az-method { display: grid; gap: var(--cds-gap-sm); max-width: 52rem; line-height: 1.6; font-size: var(--cds-font-size-body); }
+.az-method p { margin: 0; }
+.az-failed { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: inherit; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.az-failed::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+[data-dash-source-state=empty] { color: transparent; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+
+<div class="az">
+  <header class="az-head" id="top">
+    <h1 class="az-title">How Uganda's farming seasons have changed, 1981 to 2025</h1>
+    <p class="az-lede">
+      Eastern Uganda is getting wetter, and its rainy season now runs later into the year. In the Eastern lowlands (Teso) the rains end about <b data-source="season_change" data-field="end_shift_days" data-where="zone=Eastern lowlands (Teso)&amp;season=Main season" data-fmt="abs0" class="dash-skeleton">—</b> days later than in 1981 to 2000 and the season lasts <b data-source="season_change" data-field="length_change_days" data-where="zone=Eastern lowlands (Teso)&amp;season=Main season" data-fmt="abs0" class="dash-skeleton">—</b> days longer, and in Karamoja the rains end <b data-source="season_change" data-field="end_shift_days" data-where="zone=Karamoja drylands&amp;season=Main season" data-fmt="abs0" class="dash-skeleton">—</b> days later.
+      A longer season is not simply better: the longest dry spell inside the Teso season has grown from <b data-source="season_change" data-field="dry_spell_early_days" data-where="zone=Eastern lowlands (Teso)&amp;season=Main season" data-fmt="abs1" class="dash-skeleton">—</b> to <b data-source="season_change" data-field="dry_spell_recent_days" data-where="zone=Eastern lowlands (Teso)&amp;season=Main season" data-fmt="abs1" class="dash-skeleton">—</b> days.
+      In West Nile and the Mid-North the calendar has barely moved, but the rain now falls more lightly, about <b data-source="season_change" data-field="rain_per_rainy_day_change_pct" data-where="zone=West Nile&amp;season=Main season" data-fmt="pct" class="dash-skeleton">—</b> less per rainy day in West Nile.
+      Around Lake Victoria, Lake Albert, the Rwenzori and the cattle corridor, the rains still start and end within a few days of where they used to.
+    </p>
+    <p class="az-meta">Daily CHIRPS rainfall averaged over each agro-ecological zone (from SERVIR ClimateSERV), with zones built from FEWS NET livelihood zones. Changes compare 2006 to 2025 with 1981 to 2000.</p>
+  </header>
+
+  <section class="az-section" id="board">
+    <h2 class="az-h2">Which seasons have shifted</h2>
+    <p class="az-intro">For every zone and rainy season: how much later (+) or earlier (−) the rains now start and end, and how the season itself has changed. Figures in bold are clear trends over 1981 to 2025, the rest could be chance. Pick a row to see that zone below.</p>
+    <article class="az-card">
+      <div class="az-tablewrap">
+        <table class="az-table" id="change-table" data-source="season_change" data-row-key="zone,season">
+          <thead><tr>
+            <th data-field="zone">Zone</th>
+            <th data-field="season">Season</th>
+            <th data-field="start_shift_days">Rains start (days)</th>
+            <th data-field="end_shift_days">Rains end (days)</th>
+            <th data-field="length_change_days">Season length (days)</th>
+            <th data-field="dry_spell_change_days">Longest dry spell (days)</th>
+            <th data-field="rain_per_rainy_day_change_pct">Rain per rainy day</th>
+            <th data-field="heavy_days_change">Heavy-rain days</th>
+            <th data-field="season_rain_change_pct">Season rain</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </article>
+  </section>
+
+  <section class="az-section" id="zone">
+    <div class="az-picker">
+      <label for="zone-select">Zone</label>
+      <select id="zone-select" data-source="zones"></select>
+      <span class="az-zone-facts" id="zone-facts"></span>
+    </div>
+
+    <article class="az-card" id="strips-card">
+      <h3 class="az-card-title" id="strips-title">Rainy seasons, every year since 1981</h3>
+      <p class="az-note">Each bar runs from the day the rains started to the day they ended that year. The dashed lines mark the average start and end for 1981 to 2000, the solid lines for 2006 to 2025. A cross marks a year with no clear season.</p>
+      <div class="az-legend" id="strips-legend"></div>
+      <div class="az-chart az-h600" id="strips" data-source="seasons_by_year season_change"></div>
+    </article>
+
+    <article class="az-card" id="calendar-card">
+      <h3 class="az-card-title">Rain through the year, decade by decade</h3>
+      <p class="az-note">Average rain in each ten-day period of the year. Darker lines are more recent decades, so a shift in where the peaks and gaps sit shows the calendar moving.</p>
+      <div class="az-legend" id="calendar-legend"></div>
+      <div class="az-chart az-h260" id="calendar" data-source="rain_calendar_by_decade"></div>
+    </article>
+
+    <div class="az-grid" id="metrics">
+      <article class="az-card"><h3 class="az-card-title">Season length</h3><p class="az-note">Days from the start of the rains to their end.</p><div class="az-chart az-h200" id="m-length" data-source="seasons_by_year season_change"></div></article>
+      <article class="az-card"><h3 class="az-card-title">Longest dry spell in the season</h3><p class="az-note">Most days in a row with under 1 mm of rain, between start and end.</p><div class="az-chart az-h200" id="m-dry" data-source="seasons_by_year season_change"></div></article>
+      <article class="az-card"><h3 class="az-card-title">Rain per rainy day</h3><p class="az-note">How hard it rains when it rains, in mm.</p><div class="az-chart az-h200" id="m-intensity" data-source="seasons_by_year season_change"></div></article>
+      <article class="az-card"><h3 class="az-card-title">Heavy-rain days</h3><p class="az-note">Days in the season wetter than 95% of rainy days in 1981 to 2010.</p><div class="az-chart az-h200" id="m-heavy" data-source="seasons_by_year season_change"></div></article>
+    </div>
+    <div class="az-legend" id="metrics-legend"></div>
+
+    <div class="az-grid">
+      <article class="az-card"><h3 class="az-card-title">Average daytime high</h3><p class="az-note">Yearly average of the daily maximum temperature, °C.</p><div class="az-chart az-h200" id="t-max" data-source="yearly"></div></article>
+      <article class="az-card"><h3 class="az-card-title">Rain over the year</h3><p class="az-note">Total rain each year, mm.</p><div class="az-chart az-h200" id="t-rain" data-source="yearly"></div></article>
+    </div>
+  </section>
+
+  <section class="az-section" id="method">
+    <h2 class="az-h2">How this was worked out</h2>
+    <div class="az-method">
+      <p><b>Zones.</b> There is no public map file of Uganda's official agro-ecological zones, so the zones were built from the FEWS NET Uganda livelihood zones (2013), which cover the whole country and are drawn largely on agro-ecology. Their 42 zones were grouped into the national ten-zone scheme, with the Mt Elgon highlands kept separate from the eastern lowlands. Lakeshore fishing, urban and national park areas were left out.</p>
+      <p><b>Rainfall.</b> CHIRPS daily rainfall (about 5 km grid, satellite and rain-gauge records, 1981 to today) was averaged over each zone by SERVIR's ClimateSERV service. Only complete years, 1981 to 2025, are used.</p>
+      <p><b>Start of the rains.</b> The first day, inside the usual planting window, with at least 20 mm over three days, two of them rainy, and no run of seven dry days in the following 30 days. That last check means a false start does not count as the start.</p>
+      <p><b>End of the rains.</b> A simple soil water balance is filled by rain from the start of the season and loses 4 mm a day to evaporation, holding at most 70 mm. The season ends on the first day, inside the usual window for the end, on which that store runs dry.</p>
+      <p><b>Seasons.</b> West Nile, Mid-Northern, Karamoja, the Eastern lowlands and Mt Elgon are treated as having one long main season (start from mid February to mid June). The other zones have a first season (start from February to April) and a second season (start from August to October).</p>
+      <p><b>Trends and caveats.</b> Trends use the Theil-Sen slope and the Mann-Kendall test at the 5% level. Because the rain is averaged over a whole zone, a single farm sees more completely dry days and longer dry spells than these figures show, so the changes over time matter more than the exact values. Temperature is ERA5 reanalysis at one central point per zone.</p>
+    </div>
+  </section>
+
+  <section class="az-section" id="data">
+    <h2 class="az-h2">Data and sources</h2>
+    <div class="az-sources">
+      <p>Download the tables behind every chart:</p>
+      <ul>
+        <li><a href="data/season_change.csv">Season change by zone</a>: averages for 1981 to 2000 and 2006 to 2025, changes and trend tests</li>
+        <li><a href="data/seasons_by_year.csv">Seasons, year by year</a>: start, end, length, rain, dry spells and heavy rain for each zone, season and year</li>
+        <li><a href="data/rain_calendar_by_decade.csv">Rain calendar by decade</a>: average rain in each ten-day period, by decade</li>
+        <li><a href="data/yearly.csv">Yearly rain and temperature</a></li>
+        <li><a href="data/zones.csv">Agro-ecological zones</a>: how each zone was built</li>
+      </ul>
+      <p>Rainfall: <a href="https://www.chc.ucsb.edu/data/chirps">CHIRPS</a> (Climate Hazards Center, UC Santa Barbara), averaged over each zone by <a href="https://climateserv.servirglobal.net/">SERVIR ClimateSERV</a>. Zones: <a href="https://fews.net/uganda-livelihood-zones-2013">FEWS NET Uganda livelihood zones, 2013</a>. Temperature: ERA5 reanalysis (ECMWF) via the <a href="https://open-meteo.com/">Open-Meteo</a> archive.</p>
+      <p class="az-foot">Prepared by RTV Data Science, October 2026.</p>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const MONTH_START = [1, 32, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366, 397]; // day of year, running into next Jan and Feb
+  const EARLY = [1981, 2000], RECENT = [2006, 2025];
+  const f0 = d3.format(',.0f'), f1 = d3.format('.1f');
+  const signed = (v, digits) => { const r = Number(d3.format(`.${digits}f`)(v)); return (r > 0 ? '+' : r < 0 ? '−' : '') + d3.format(`.${digits}f`)(Math.abs(r)); };
+  const doyLabel = (d) => { const dt = new Date(Date.UTC(2001, 0, 1) + (d - 1) * 864e5); return d3.utcFormat('%-d %b')(dt); };
+
+  function status(ids) {
+    const s = ids.map((id) => dash.data(id).status);
+    if (s.every((x) => x === 'ok')) return 'ok';
+    if (s.some((x) => ['error', 'connect', 'declined', 'missing'].includes(x))) return 'error';
+    return 'loading';
+  }
+  function failed(box) { box.textContent = ''; const d = document.createElement('div'); d.className = 'az-failed'; d.textContent = 'Failed to load'; box.appendChild(d); }
+  function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function axisStyle(g) { g.attr('font-size', null).attr('font-family', null).attr('class', 'az-axis'); g.select('.domain').remove(); }
+  function textWidth(svg, str) { const t = svg.append('text').attr('class', 'az-axis').style('font-size', '11px').text(str); const w = t.node().getComputedTextLength(); t.remove(); return w; }
+  function cssColor(expr) { const p = el('span'); p.style.color = expr; p.style.display = 'none'; document.querySelector('.az').appendChild(p); const c = getComputedStyle(p).color; p.remove(); return c; }
+  function legend(box, items) {
+    box.textContent = '';
+    items.forEach((it) => {
+      const s = el('span'); const m = el('span', it.kind === 'line' ? 'az-ln' : it.kind === 'dash' ? 'az-dl' : 'az-sw');
+      if (it.color) m.style.background = it.color;
+      s.appendChild(m); s.appendChild(document.createTextNode(it.label)); box.appendChild(s);
+    });
+  }
+  function tooltip(box) {
+    let t = box.querySelector(':scope > .az-tip');
+    if (!t) { t = el('div', 'az-tip'); t.hidden = true; box.appendChild(t); }
+    return {
+      show(head, rows, x, y) {
+        t.textContent = ''; t.appendChild(el('div', 'az-tip-head', head));
+        rows.forEach((r) => {
+          const row = el('div', 'az-tip-row'); const k = el('span', 'k');
+          if (r.color) { const s = el('span', 'az-sw'); s.style.background = r.color; k.appendChild(s); }
+          k.appendChild(document.createTextNode(r.label)); row.appendChild(k); row.appendChild(el('span', null, r.value)); t.appendChild(row);
+        });
+        t.hidden = false;
+        const bw = box.clientWidth, tw = t.offsetWidth, th = t.offsetHeight;
+        let left = x + 12; if (left + tw > bw) left = Math.max(0, x - tw - 12);
+        let top = y - th - 8; if (top < 0) top = y + 12;
+        t.style.left = left + 'px'; t.style.top = top + 'px';
+      },
+      hide() { t.hidden = true; },
+    };
+  }
+
+  const num = (v) => (v === '' || v == null ? NaN : Number(v));
+  const seasonColor = (season, seasons) => dash.colors[Math.max(0, seasons.indexOf(season))];
+  function currentZone() {
+    const z = dash.params().zone;
+    const d = dash.data('zones');
+    if (d.status === 'ok' && !d.data.some((r) => r.zone === z)) return d.data[0].zone;
+    return z;
+  }
+
+  // ---------- lede numbers ----------
+  function fillMarks() {
+    document.querySelectorAll('.az-lede [data-source][data-field][data-where]').forEach((e) => {
+      const d = dash.data(e.getAttribute('data-source'));
+      if (d.status !== 'ok') return;
+      const conds = e.getAttribute('data-where').split('&').map((p) => p.split('=').map(decodeURIComponent));
+      const row = d.data.find((r) => conds.every(([k, v]) => String(r[k]) === v));
+      e.classList.remove('dash-skeleton');
+      if (!row) { e.textContent = '—'; return; }
+      const v = num(row[e.getAttribute('data-field')]);
+      const fmt = e.getAttribute('data-fmt');
+      e.textContent = fmt === 'abs0' ? f0(Math.abs(v)) : fmt === 'abs1' ? f1(Math.abs(v)) : fmt === 'pct' ? f0(Math.abs(v)) + '%' : f1(v);
+    });
+  }
+
+  // ---------- change board ----------
+  function drawBoard() {
+    const body = document.querySelector('#change-table tbody');
+    body.textContent = '';
+    if (status(['season_change']) !== 'ok') return;
+    const picked = currentZone();
+    dash.data('season_change').data.forEach((r) => {
+      const tr = el('tr'); if (r.zone === picked) tr.classList.add('is-picked');
+      tr.setAttribute('data-key', encodeURIComponent(r.zone) + ',' + encodeURIComponent(r.season));
+      tr.dataset.zone = r.zone;
+      const cell = (v, p, fmt) => { const td = el('td', isNaN(v) ? 'faint' : num(p) < 0.05 ? 'sig' : 'faint', isNaN(v) ? '—' : fmt(v)); return td; };
+      tr.appendChild(el('td', null, r.zone));
+      tr.appendChild(el('td', null, r.season));
+      tr.appendChild(cell(num(r.start_shift_days), r.start_p, (v) => signed(v, 0)));
+      tr.appendChild(cell(num(r.end_shift_days), r.end_p, (v) => signed(v, 0)));
+      tr.appendChild(cell(num(r.length_change_days), r.length_p, (v) => signed(v, 0)));
+      tr.appendChild(cell(num(r.dry_spell_change_days), r.dry_spell_p, (v) => signed(v, 1)));
+      tr.appendChild(cell(num(r.rain_per_rainy_day_change_pct), r.rain_per_rainy_day_p, (v) => signed(v, 0) + '%'));
+      tr.appendChild(cell(num(r.heavy_days_change), r.heavy_days_p, (v) => signed(v, 1)));
+      tr.appendChild(cell(num(r.season_rain_change_pct), r.season_rain_p, (v) => signed(v, 0) + '%'));
+      body.appendChild(tr);
+    });
+  }
+  document.getElementById('change-table').addEventListener('click', (ev) => {
+    const tr = ev.target.closest('tr[data-zone]');
+    if (!tr) return;
+    dash.setParams({ zone: tr.dataset.zone });
+    const target = document.getElementById('zone');
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    dash.setLink('zone');
+  });
+
+  // ---------- picker ----------
+  const sel = document.getElementById('zone-select');
+  sel.addEventListener('change', () => dash.setParams({ zone: sel.value }));
+  function drawPicker() {
+    const d = dash.data('zones');
+    const facts = document.getElementById('zone-facts');
+    if (d.status !== 'ok') { sel.replaceChildren(); facts.textContent = ''; return; }
+    sel.replaceChildren(...d.data.map((r) => new Option(r.zone, r.zone)));
+    const z = currentZone(); sel.value = z;
+    const row = d.data.find((r) => r.zone === z);
+    facts.textContent = row ? `${row.pattern === 'two seasons' ? 'Two rainy seasons a year' : 'One long main season'}. Built from FEWS NET zones ${row.fews_livelihood_zones}.` : '';
+    document.getElementById('strips-title').textContent = `Rainy seasons in ${z}, every year since 1981`;
+  }
+
+  // ---------- season strips ----------
+  function drawStrips() {
+    const box = document.getElementById('strips');
+    const st = status(['seasons_by_year', 'season_change']);
+    if (st !== 'ok') { if (st === 'error') failed(box); else box.textContent = ''; legend(document.getElementById('strips-legend'), []); return; }
+    const zone = currentZone();
+    const rows = dash.data('seasons_by_year').data.filter((r) => r.zone === zone)
+      .map((r) => ({ season: r.season, year: num(r.year), on: num(r.onset_doy), end: num(r.end_doy), len: num(r.length_days), rain: num(r.rain_mm), dry: num(r.longest_dry_spell) }));
+    const change = dash.data('season_change').data.filter((r) => r.zone === zone);
+    const seasons = change.map((r) => r.season);
+    legend(document.getElementById('strips-legend'), seasons.map((s) => ({ label: s, color: seasonColor(s, seasons) }))
+      .concat([{ kind: 'dash', label: 'Average, 1981 to 2000' }, { kind: 'line', label: 'Average, 2006 to 2025', color: 'var(--color-fg)' }]));
+    box.textContent = '';
+    const years = d3.range(1981, 2026);
+    const W = Math.max(300, box.clientWidth || 700);
+    const rowH = W < 520 ? 11 : 12.5;
+    const top = 6, bottom = 24;
+    const H = top + years.length * rowH + bottom;
+    box.style.minHeight = H + 'px';
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    const ml = Math.ceil(textWidth(svg, '2000')) + 10;
+    const xmax = d3.max(rows, (d) => d.end) > 380 ? 425 : 366;
+    const x = d3.scaleLinear([1, xmax], [ml, W - 6]);
+    const y = d3.scaleBand(years, [top, H - bottom]).paddingInner(0.25);
+    const ticks = MONTH_START.filter((d) => d <= xmax);
+    svg.append('g').selectAll('line').data(ticks).join('line').attr('class', 'az-gridline').attr('x1', x).attr('x2', x).attr('y1', top).attr('y2', H - bottom);
+    const narrow = W < 520;
+    svg.append('g').selectAll('text').data(ticks.slice(0, -1)).join('text').attr('class', 'az-label-muted')
+      .attr('x', (d, i) => (x(d) + x(ticks[i + 1])) / 2).attr('y', H - 8).attr('text-anchor', 'middle')
+      .text((d, i) => { const m = MONTHS[i % 12]; return narrow ? m[0] : m; });
+    svg.append('g').selectAll('text').data(years.filter((yy) => yy % 5 === 0 || yy === 1981)).join('text').attr('class', 'az-label-muted')
+      .attr('x', ml - 8).attr('y', (yy) => y(yy) + y.bandwidth() / 2 + 4).attr('text-anchor', 'end').text((yy) => yy);
+    const done = rows.filter((d) => !isNaN(d.on) && !isNaN(d.end));
+    svg.append('g').selectAll('rect').data(done).join('rect')
+      .attr('x', (d) => x(d.on)).attr('width', (d) => Math.max(2, x(d.end) - x(d.on)))
+      .attr('y', (d) => y(d.year)).attr('height', y.bandwidth()).attr('rx', Math.min(3, y.bandwidth() / 2))
+      .style('fill', (d) => seasonColor(d.season, seasons)).attr('fill-opacity', 0.85);
+    // Years with no clear season: a small cross in the middle of that season's usual span
+    const missing = rows.filter((d) => isNaN(d.on) || isNaN(d.end));
+    missing.forEach((d) => {
+      const c = change.find((r) => r.season === d.season);
+      const mid = (num(c.start_early_doy) + num(c.end_early_doy)) / 2;
+      const cx = x(mid), cy = y(d.year) + y.bandwidth() / 2, r = Math.min(4, y.bandwidth() / 2);
+      svg.append('path').attr('d', `M${cx - r},${cy - r}L${cx + r},${cy + r}M${cx - r},${cy + r}L${cx + r},${cy - r}`).style('stroke', 'var(--color-fg-muted)').attr('stroke-width', 1.5);
+    });
+    // Period averages
+    change.forEach((c) => {
+      [['start_early_doy', true], ['end_early_doy', true], ['start_recent_doy', false], ['end_recent_doy', false]].forEach(([f, early]) => {
+        const v = num(c[f]); if (isNaN(v)) return;
+        const span = early ? EARLY : RECENT;
+        svg.append('line').attr('x1', x(v)).attr('x2', x(v)).attr('y1', y(span[0]) - 1).attr('y2', y(span[1]) + y.bandwidth() + 1)
+          .style('stroke', early ? 'var(--color-fg-muted)' : 'var(--color-fg)').attr('stroke-width', early ? 1.5 : 2)
+          .attr('stroke-dasharray', early ? '4 3' : null);
+      });
+    });
+    const tip = tooltip(box);
+    const hl = svg.append('rect').style('fill', 'none').style('stroke', 'var(--color-fg)').attr('stroke-width', 1).attr('visibility', 'hidden');
+    svg.append('rect').attr('x', ml).attr('y', top).attr('width', W - ml).attr('height', H - top - bottom).style('fill', 'transparent')
+      .on('pointermove', (ev) => {
+        const [px, py] = d3.pointer(ev);
+        const yi = Math.max(0, Math.min(years.length - 1, Math.floor((py - top) / y.step())));
+        const yr = years[yi];
+        const doy = x.invert(px);
+        const these = rows.filter((d) => d.year === yr);
+        const hit = these.reduce((a, b) => {
+          const da = isNaN(a.on) ? 1e9 : Math.max(0, a.on - doy, doy - a.end), db = isNaN(b.on) ? 1e9 : Math.max(0, b.on - doy, doy - b.end);
+          return db < da ? b : a;
+        });
+        const k = box.clientWidth / W;
+        if (!isNaN(hit.on) && !isNaN(hit.end)) hl.attr('visibility', 'visible').attr('x', x(hit.on) - 1).attr('width', Math.max(2, x(hit.end) - x(hit.on)) + 2).attr('y', y(yr) - 1).attr('height', y.bandwidth() + 2);
+        else hl.attr('visibility', 'hidden');
+        tip.show(`${yr}, ${hit.season}`, isNaN(hit.on) || isNaN(hit.end) ? [{ label: 'No clear season found', value: '' }] : [
+          { label: 'Rains started', value: doyLabel(hit.on) },
+          { label: 'Rains ended', value: doyLabel(hit.end) + (hit.end > 365 ? ' (next year)' : '') },
+          { label: 'Length', value: `${f0(hit.len)} days` },
+          { label: 'Rain', value: `${f0(hit.rain)} mm` },
+          { label: 'Longest dry spell', value: `${f0(hit.dry)} days` },
+        ], px * k, y(yr) * k);
+      })
+      .on('pointerleave', () => { tip.hide(); hl.attr('visibility', 'hidden'); });
+  }
+
+  // ---------- decade calendar ----------
+  function drawCalendar() {
+    const box = document.getElementById('calendar');
+    const st = status(['rain_calendar_by_decade']);
+    if (st !== 'ok') { if (st === 'error') failed(box); else box.textContent = ''; return; }
+    const zone = currentZone();
+    const rows = dash.data('rain_calendar_by_decade').data.filter((r) => r.zone === zone).map((r) => ({ decade: r.decade, dekad: num(r.dekad), mm: num(r.mm) }));
+    const decades = Array.from(new Set(rows.map((d) => d.decade)));
+    const lo = cssColor('var(--cds-chart-muted)'), hi = cssColor(dash.colors[0]);
+    const ramp = (i) => d3.interpolateRgb(lo, hi)(decades.length === 1 ? 1 : 0.15 + 0.85 * (i / (decades.length - 1)));
+    legend(document.getElementById('calendar-legend'), decades.map((d, i) => ({ kind: 'line', label: d === '2020s' ? '2021 to 2025' : d, color: ramp(i) })));
+    box.textContent = '';
+    const W = Math.max(300, box.clientWidth || 700), H = 260;
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    const y = d3.scaleLinear([0, d3.max(rows, (d) => d.mm) * 1.08], [H - 24, 8]).nice(4);
+    const ticks = y.ticks(4);
+    const ml = Math.ceil(d3.max(ticks, (t) => textWidth(svg, f0(t)))) + 10;
+    const x = d3.scaleLinear([1, 36], [ml + 6, W - 8]);
+    svg.append('g').selectAll('line').data(ticks).join('line').attr('class', 'az-gridline').attr('x1', ml).attr('x2', W - 4).attr('y1', y).attr('y2', y);
+    axisStyle(svg.append('g').attr('transform', `translate(${ml - 4},0)`).call(d3.axisLeft(y).tickValues(ticks).tickSize(0).tickFormat(f0)));
+    const narrow = W < 480;
+    svg.append('g').selectAll('text').data(d3.range(12)).join('text').attr('class', 'az-label-muted').attr('text-anchor', 'middle')
+      .attr('x', (m) => x(m * 3 + 2)).attr('y', H - 6).text((m) => (narrow ? MONTHS[m][0] : MONTHS[m]));
+    decades.forEach((dec, i) => {
+      const pts = rows.filter((d) => d.decade === dec).sort((a, b) => a.dekad - b.dekad);
+      svg.append('path').datum(pts).style('fill', 'none').style('stroke', ramp(i)).attr('stroke-width', i === decades.length - 1 || i === decades.length - 2 ? 2.25 : 1.5)
+        .attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round').attr('d', d3.line().x((d) => x(d.dekad)).y((d) => y(d.mm)));
+    });
+    const tip = tooltip(box);
+    const rule = svg.append('line').style('stroke', 'var(--cds-chart-reference)').attr('y1', 8).attr('y2', H - 24).attr('visibility', 'hidden');
+    svg.append('rect').attr('x', ml).attr('y', 0).attr('width', W - ml).attr('height', H).style('fill', 'transparent')
+      .on('pointermove', (ev) => {
+        const [px] = d3.pointer(ev);
+        const dk = Math.max(1, Math.min(36, Math.round(x.invert(px))));
+        rule.attr('visibility', 'visible').attr('x1', x(dk)).attr('x2', x(dk));
+        const m = Math.floor((dk - 1) / 3), part = ['1 to 10', '11 to 20', '21 to end'][(dk - 1) % 3];
+        const k = box.clientWidth / W;
+        tip.show(`${MONTHS[m]} ${part}`, decades.map((dec, i) => { const p = rows.find((d) => d.decade === dec && d.dekad === dk); return { label: dec === '2020s' ? '2021 to 2025' : dec, value: p ? `${f0(p.mm)} mm` : '—', color: ramp(i) }; }), x(dk) * k, 20);
+      })
+      .on('pointerleave', () => { rule.attr('visibility', 'hidden'); tip.hide(); });
+  }
+
+  // ---------- small yearly charts per season ----------
+  function drawMetric(boxId, field, earlyField, recentField, fmt, unit) {
+    const box = document.getElementById(boxId);
+    const st = status(['seasons_by_year', 'season_change']);
+    if (st !== 'ok') { if (st === 'error') failed(box); else box.textContent = ''; return; }
+    const zone = currentZone();
+    const change = dash.data('season_change').data.filter((r) => r.zone === zone);
+    const seasons = change.map((r) => r.season);
+    const rows = dash.data('seasons_by_year').data.filter((r) => r.zone === zone).map((r) => ({ season: r.season, year: num(r.year), v: num(r[field]) }));
+    box.textContent = '';
+    const W = Math.max(260, box.clientWidth || 400), H = 200;
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    const vals = rows.map((d) => d.v).filter((v) => !isNaN(v));
+    const y = d3.scaleLinear([0, (d3.max(vals) || 1) * 1.1], [H - 22, 8]).nice(4);
+    const ticks = y.ticks(4);
+    const ml = Math.ceil(d3.max(ticks, (t) => textWidth(svg, fmt(t)))) + 10;
+    const x = d3.scaleLinear([1981, 2025], [ml + 4, W - 6]);
+    svg.append('g').selectAll('line').data(ticks).join('line').attr('class', 'az-gridline').attr('x1', ml).attr('x2', W - 4).attr('y1', y).attr('y2', y);
+    axisStyle(svg.append('g').attr('transform', `translate(${ml - 4},0)`).call(d3.axisLeft(y).tickValues(ticks).tickSize(0).tickFormat(fmt)));
+    axisStyle(svg.append('g').attr('transform', `translate(0,${H - 18})`).call(d3.axisBottom(x).tickValues([1990, 2000, 2010, 2020]).tickSize(0).tickFormat(d3.format('d'))));
+    seasons.forEach((s) => {
+      const pts = rows.filter((d) => d.season === s).sort((a, b) => a.year - b.year);
+      const color = seasonColor(s, seasons);
+      svg.append('path').datum(pts).style('fill', 'none').style('stroke', color).attr('stroke-width', 1.5).attr('stroke-opacity', 0.55)
+        .attr('d', d3.line().defined((d) => !isNaN(d.v)).x((d) => x(d.year)).y((d) => y(d.v)));
+      svg.append('g').selectAll('circle').data(pts.filter((d) => !isNaN(d.v))).join('circle').attr('cx', (d) => x(d.year)).attr('cy', (d) => y(d.v)).attr('r', 2.25).style('fill', color);
+      const c = change.find((r) => r.season === s);
+      [[earlyField, EARLY, true], [recentField, RECENT, false]].forEach(([f, span, early]) => {
+        const v = num(c[f]); if (isNaN(v)) return;
+        svg.append('line').attr('x1', x(span[0])).attr('x2', x(span[1])).attr('y1', y(v)).attr('y2', y(v))
+          .style('stroke', early ? 'var(--color-fg-muted)' : color).attr('stroke-width', 2.5).attr('stroke-dasharray', early ? '4 3' : null);
+      });
+    });
+    const tip = tooltip(box);
+    const rule = svg.append('line').style('stroke', 'var(--cds-chart-reference)').attr('y1', 8).attr('y2', H - 22).attr('visibility', 'hidden');
+    svg.append('rect').attr('x', ml).attr('y', 0).attr('width', W - ml).attr('height', H).style('fill', 'transparent')
+      .on('pointermove', (ev) => {
+        const [px] = d3.pointer(ev);
+        const yr = Math.max(1981, Math.min(2025, Math.round(x.invert(px))));
+        rule.attr('visibility', 'visible').attr('x1', x(yr)).attr('x2', x(yr));
+        const k = box.clientWidth / W;
+        tip.show(String(yr), seasons.map((s) => { const p = rows.find((d) => d.season === s && d.year === yr); return { label: s, value: p && !isNaN(p.v) ? fmt(p.v) + unit : 'no clear season', color: seasonColor(s, seasons) }; }), x(yr) * k, 16);
+      })
+      .on('pointerleave', () => { rule.attr('visibility', 'hidden'); tip.hide(); });
+  }
+
+  // ---------- yearly line (temperature, rain) ----------
+  function drawYearly(boxId, field, fmt, unit) {
+    const box = document.getElementById(boxId);
+    const st = status(['yearly']);
+    if (st !== 'ok') { if (st === 'error') failed(box); else box.textContent = ''; return; }
+    const zone = currentZone();
+    const rows = dash.data('yearly').data.filter((r) => r.zone === zone).map((r) => ({ year: num(r.year), v: num(r[field]) })).filter((d) => !isNaN(d.v)).sort((a, b) => a.year - b.year);
+    box.textContent = '';
+    if (!rows.length) return;
+    const W = Math.max(260, box.clientWidth || 400), H = 200;
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    const ext = d3.extent(rows, (d) => d.v), pad = (ext[1] - ext[0]) * 0.1 || 1;
+    const y = d3.scaleLinear([ext[0] - pad, ext[1] + pad], [H - 22, 8]).nice(4);
+    const ticks = y.ticks(4);
+    const ml = Math.ceil(d3.max(ticks, (t) => textWidth(svg, fmt(t)))) + 10;
+    const endW = Math.ceil(textWidth(svg, fmt(rows[rows.length - 1].v) + unit)) + 12;
+    const x = d3.scaleLinear([1981, 2025], [ml + 4, W - endW]);
+    const color = dash.colors[0];
+    svg.append('g').selectAll('line').data(ticks).join('line').attr('class', 'az-gridline').attr('x1', ml).attr('x2', W - endW).attr('y1', y).attr('y2', y);
+    axisStyle(svg.append('g').attr('transform', `translate(${ml - 4},0)`).call(d3.axisLeft(y).tickValues(ticks).tickSize(0).tickFormat(fmt)));
+    axisStyle(svg.append('g').attr('transform', `translate(0,${H - 18})`).call(d3.axisBottom(x).tickValues([1990, 2000, 2010, 2020]).tickSize(0).tickFormat(d3.format('d'))));
+    svg.append('path').datum(rows).style('fill', 'none').style('stroke', color).attr('stroke-width', 2).attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round')
+      .attr('d', d3.line().x((d) => x(d.year)).y((d) => y(d.v)));
+    const last = rows[rows.length - 1];
+    svg.append('circle').attr('cx', x(last.year)).attr('cy', y(last.v)).attr('r', 4).style('fill', color).style('stroke', 'var(--color-panel)').attr('stroke-width', 2);
+    svg.append('text').attr('class', 'az-label').attr('x', x(last.year) + 8).attr('y', y(last.v) + 4).text(fmt(last.v) + unit);
+    const tip = tooltip(box);
+    const dot = svg.append('circle').attr('r', 4).style('fill', color).style('stroke', 'var(--color-panel)').attr('stroke-width', 2).attr('visibility', 'hidden');
+    svg.append('rect').attr('x', ml).attr('y', 0).attr('width', W - ml - endW + 4).attr('height', H).style('fill', 'transparent')
+      .on('pointermove', (ev) => {
+        const [px] = d3.pointer(ev);
+        const yr = Math.max(1981, Math.min(2025, Math.round(x.invert(px))));
+        const p = rows.find((d) => d.year === yr); if (!p) return;
+        dot.attr('visibility', 'visible').attr('cx', x(yr)).attr('cy', y(p.v));
+        const k = box.clientWidth / W;
+        tip.show(String(yr), [{ label: zone, value: fmt(p.v) + unit }], x(yr) * k, y(p.v) * k);
+      })
+      .on('pointerleave', () => { dot.attr('visibility', 'hidden'); tip.hide(); });
+  }
+
+  dash.onData(() => {
+    fillMarks();
+    drawBoard();
+    drawPicker();
+    drawStrips();
+    drawCalendar();
+    drawMetric('m-length', 'length_days', 'length_early_days', 'length_recent_days', f0, ' days');
+    drawMetric('m-dry', 'longest_dry_spell', 'dry_spell_early_days', 'dry_spell_recent_days', f0, ' days');
+    drawMetric('m-intensity', 'mm_per_rainy_day', 'rain_per_rainy_day_early_mm', 'rain_per_rainy_day_recent_mm', f1, ' mm');
+    drawMetric('m-heavy', 'heavy_days', 'heavy_days_early', 'heavy_days_recent', f0, ' days');
+    const ch = dash.data('season_change');
+    const z = currentZone();
+    const seasons = ch.status === 'ok' ? ch.data.filter((r) => r.zone === z).map((r) => r.season) : [];
+    legend(document.getElementById('metrics-legend'), seasons.map((s) => ({ kind: 'line', label: s, color: seasonColor(s, seasons) }))
+      .concat([{ kind: 'dash', label: 'Average, 1981 to 2000' }]).concat(seasons.length ? [{ kind: 'line', label: 'Average, 2006 to 2025, in the season colour', color: 'var(--color-fg)' }] : []));
+    drawYearly('t-max', 'tmax_c', f1, '°C');
+    drawYearly('t-rain', 'rain_mm', f0, ' mm');
+  });
+
+  const named = document.getElementById(location.hash.slice(1));
+  if (named) requestAnimationFrame(() => { named.scrollIntoView(); dash.setLink(named.id); });
+})();
+</script>
+
+</div>
+</body>
+</html>

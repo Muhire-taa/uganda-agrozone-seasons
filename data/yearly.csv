@@ -1,0 +1,496 @@
+zone,year,rain_mm,rainy_days,heavy_days,tmax_c,tmin_c,hot_temp_days
+West Nile,1981,1303.1,177,16,30.04,19.52,27
+West Nile,1982,1247.4,205,10,30.0,19.61,24
+West Nile,1983,1253.7,201,11,30.49,19.91,42
+West Nile,1984,1055.3,169,11,30.5,19.49,33
+West Nile,1985,1232.3,202,13,29.63,19.16,45
+West Nile,1986,1217.5,186,16,29.25,19.1,11
+West Nile,1987,1306.3,185,13,30.21,20.12,28
+West Nile,1988,1310.5,209,13,30.16,19.93,24
+West Nile,1989,1336.8,189,15,29.91,19.48,23
+West Nile,1990,1332.2,203,18,30.34,20.03,9
+West Nile,1991,1388.7,213,12,30.07,19.73,26
+West Nile,1992,1146.8,195,8,30.24,19.69,39
+West Nile,1993,1220.7,196,10,30.56,19.7,24
+West Nile,1994,1304.1,208,9,30.25,19.84,37
+West Nile,1995,1204.7,203,8,30.52,20.1,33
+West Nile,1996,1267.8,219,8,29.92,19.7,21
+West Nile,1997,1335.6,210,13,30.63,20.1,59
+West Nile,1998,1281.9,206,17,31.15,20.65,52
+West Nile,1999,1313.8,214,7,30.32,19.6,35
+West Nile,2000,1028.5,189,4,30.79,19.67,38
+West Nile,2001,1355.3,219,10,30.58,19.71,27
+West Nile,2002,1212.2,210,2,30.81,20.1,31
+West Nile,2003,1360.7,216,10,30.88,20.14,56
+West Nile,2004,1142.1,194,8,30.97,20.42,51
+West Nile,2005,1087.9,200,10,31.23,20.39,72
+West Nile,2006,1071.4,201,7,30.58,20.24,38
+West Nile,2007,1177.7,208,11,30.69,20.23,35
+West Nile,2008,994.5,199,2,30.53,19.88,29
+West Nile,2009,834.2,192,1,31.19,20.53,37
+West Nile,2010,1351.8,216,9,30.75,20.57,28
+West Nile,2011,1366.2,200,13,30.53,19.9,43
+West Nile,2012,1347.1,215,12,30.9,20.01,70
+West Nile,2013,1353.6,217,11,30.58,20.09,46
+West Nile,2014,1262.8,209,11,31.2,20.55,78
+West Nile,2015,1280.7,210,8,31.54,20.59,78
+West Nile,2016,1099.9,193,6,31.73,20.84,80
+West Nile,2017,1252.1,197,10,32.48,20.57,120
+West Nile,2018,1296.6,200,12,31.55,20.38,58
+West Nile,2019,1342.4,223,11,31.4,20.55,95
+West Nile,2020,1315.7,232,12,31.37,20.35,50
+West Nile,2021,1087.8,180,5,32.11,20.35,90
+West Nile,2022,1099.1,189,10,31.14,19.71,68
+West Nile,2023,1229.1,197,11,31.81,20.1,72
+West Nile,2024,1272.6,201,18,32.79,20.86,131
+West Nile,2025,1078.2,198,5,32.47,20.42,111
+Mid-Northern (Acholi and Lango),1981,1292.9,194,17,28.18,18.76,38
+Mid-Northern (Acholi and Lango),1982,1371.6,224,13,27.88,18.65,24
+Mid-Northern (Acholi and Lango),1983,1271.0,207,11,28.39,19.15,34
+Mid-Northern (Acholi and Lango),1984,1098.3,165,13,28.27,18.61,32
+Mid-Northern (Acholi and Lango),1985,1348.6,221,14,27.69,18.28,34
+Mid-Northern (Acholi and Lango),1986,1157.6,189,15,27.62,18.46,17
+Mid-Northern (Acholi and Lango),1987,1300.7,202,17,28.3,19.24,29
+Mid-Northern (Acholi and Lango),1988,1385.6,213,15,28.18,18.97,23
+Mid-Northern (Acholi and Lango),1989,1335.3,218,12,27.85,18.72,19
+Mid-Northern (Acholi and Lango),1990,1438.0,222,10,27.94,18.8,8
+Mid-Northern (Acholi and Lango),1991,1444.2,215,15,28.09,18.71,19
+Mid-Northern (Acholi and Lango),1992,1287.3,213,8,28.41,19.02,52
+Mid-Northern (Acholi and Lango),1993,1176.2,195,11,28.5,18.98,26
+Mid-Northern (Acholi and Lango),1994,1438.3,228,8,28.24,18.85,34
+Mid-Northern (Acholi and Lango),1995,1326.2,226,6,28.51,19.12,37
+Mid-Northern (Acholi and Lango),1996,1356.2,244,9,28.07,18.76,17
+Mid-Northern (Acholi and Lango),1997,1323.0,210,11,28.7,19.27,57
+Mid-Northern (Acholi and Lango),1998,1260.3,206,12,28.94,19.56,56
+Mid-Northern (Acholi and Lango),1999,1343.5,222,9,28.25,18.72,38
+Mid-Northern (Acholi and Lango),2000,1224.9,208,9,28.66,18.99,57
+Mid-Northern (Acholi and Lango),2001,1419.9,224,13,28.09,18.76,27
+Mid-Northern (Acholi and Lango),2002,1281.0,217,9,28.62,19.31,33
+Mid-Northern (Acholi and Lango),2003,1340.3,230,9,28.83,19.21,54
+Mid-Northern (Acholi and Lango),2004,1221.7,208,10,28.76,19.31,43
+Mid-Northern (Acholi and Lango),2005,1148.8,197,11,29.22,19.44,61
+Mid-Northern (Acholi and Lango),2006,1332.6,227,12,28.44,19.19,38
+Mid-Northern (Acholi and Lango),2007,1313.0,230,9,28.66,19.18,41
+Mid-Northern (Acholi and Lango),2008,1108.8,209,5,28.54,18.88,43
+Mid-Northern (Acholi and Lango),2009,923.7,207,2,29.01,19.47,56
+Mid-Northern (Acholi and Lango),2010,1342.4,229,5,28.47,19.33,23
+Mid-Northern (Acholi and Lango),2011,1443.8,234,12,28.5,19.01,45
+Mid-Northern (Acholi and Lango),2012,1535.0,230,16,28.8,19.26,70
+Mid-Northern (Acholi and Lango),2013,1357.1,225,7,28.51,19.21,40
+Mid-Northern (Acholi and Lango),2014,1359.4,223,12,28.96,19.45,62
+Mid-Northern (Acholi and Lango),2015,1364.1,219,12,29.21,19.64,73
+Mid-Northern (Acholi and Lango),2016,1147.2,185,9,29.68,20.09,80
+Mid-Northern (Acholi and Lango),2017,1265.5,211,7,29.88,19.38,99
+Mid-Northern (Acholi and Lango),2018,1478.7,217,15,29.03,19.07,48
+Mid-Northern (Acholi and Lango),2019,1479.6,232,11,29.13,19.31,84
+Mid-Northern (Acholi and Lango),2020,1489.8,238,9,28.39,18.95,25
+Mid-Northern (Acholi and Lango),2021,1072.0,198,8,29.45,19.08,64
+Mid-Northern (Acholi and Lango),2022,1130.8,208,7,29.4,18.61,69
+Mid-Northern (Acholi and Lango),2023,1245.0,211,10,30.04,19.02,67
+Mid-Northern (Acholi and Lango),2024,1271.7,232,16,30.15,19.29,85
+Mid-Northern (Acholi and Lango),2025,1305.6,219,9,29.71,18.94,85
+Karamoja drylands,1981,828.0,126,8,29.02,18.68,37
+Karamoja drylands,1982,890.5,142,8,28.75,18.48,34
+Karamoja drylands,1983,815.9,145,3,29.0,18.86,26
+Karamoja drylands,1984,605.5,106,8,29.21,18.42,23
+Karamoja drylands,1985,835.1,151,2,28.26,18.28,23
+Karamoja drylands,1986,717.4,116,7,28.64,18.54,21
+Karamoja drylands,1987,812.3,130,5,29.85,19.18,43
+Karamoja drylands,1988,1027.0,152,8,28.72,18.84,28
+Karamoja drylands,1989,923.1,143,10,28.57,18.36,19
+Karamoja drylands,1990,877.4,145,7,28.95,18.83,6
+Karamoja drylands,1991,1024.5,151,11,28.81,18.63,28
+Karamoja drylands,1992,772.3,144,1,29.04,18.84,41
+Karamoja drylands,1993,701.5,118,6,30.07,19.24,39
+Karamoja drylands,1994,868.9,147,6,29.27,18.75,50
+Karamoja drylands,1995,811.5,130,9,29.81,19.23,39
+Karamoja drylands,1996,930.8,149,1,29.25,18.8,23
+Karamoja drylands,1997,916.9,132,8,29.65,19.18,73
+Karamoja drylands,1998,888.4,134,6,29.56,19.39,34
+Karamoja drylands,1999,780.9,142,4,28.99,18.56,28
+Karamoja drylands,2000,847.7,141,7,29.68,18.75,52
+Karamoja drylands,2001,1004.1,151,11,28.7,18.43,22
+Karamoja drylands,2002,718.4,114,6,30.05,19.35,32
+Karamoja drylands,2003,857.7,137,8,29.68,19.16,67
+Karamoja drylands,2004,831.2,126,8,29.39,19.01,40
+Karamoja drylands,2005,768.3,123,9,29.88,19.33,56
+Karamoja drylands,2006,1052.9,164,8,28.88,18.85,23
+Karamoja drylands,2007,1166.0,134,19,28.94,18.83,24
+Karamoja drylands,2008,758.3,138,3,29.19,18.59,32
+Karamoja drylands,2009,747.5,133,5,30.4,19.51,43
+Karamoja drylands,2010,968.0,165,5,29.25,19.25,20
+Karamoja drylands,2011,1060.6,161,11,29.0,18.61,37
+Karamoja drylands,2012,1186.5,170,13,28.94,18.65,49
+Karamoja drylands,2013,1014.4,162,6,28.65,18.62,24
+Karamoja drylands,2014,868.6,147,7,29.32,19.06,42
+Karamoja drylands,2015,876.7,143,8,29.92,19.25,68
+Karamoja drylands,2016,826.6,128,10,30.34,19.98,67
+Karamoja drylands,2017,986.6,155,9,29.84,18.6,34
+Karamoja drylands,2018,1174.1,167,11,28.94,18.15,13
+Karamoja drylands,2019,1068.6,153,11,29.4,18.47,63
+Karamoja drylands,2020,1368.3,199,14,28.64,18.09,20
+Karamoja drylands,2021,811.0,138,5,29.74,18.51,22
+Karamoja drylands,2022,830.5,146,8,30.03,18.2,53
+Karamoja drylands,2023,827.4,142,6,30.71,18.76,59
+Karamoja drylands,2024,1130.6,172,11,30.23,18.78,53
+Karamoja drylands,2025,1253.0,178,16,30.18,18.76,64
+Eastern lowlands (Teso),1981,1303.8,188,15,28.73,18.86,39
+Eastern lowlands (Teso),1982,1362.5,213,8,27.96,18.68,33
+Eastern lowlands (Teso),1983,1207.7,192,10,28.61,19.14,23
+Eastern lowlands (Teso),1984,1077.7,159,13,28.83,18.62,32
+Eastern lowlands (Teso),1985,1369.0,208,11,27.4,18.23,27
+Eastern lowlands (Teso),1986,1065.8,184,5,27.7,18.46,9
+Eastern lowlands (Teso),1987,1183.6,186,11,28.6,19.12,18
+Eastern lowlands (Teso),1988,1516.9,212,18,28.31,18.94,22
+Eastern lowlands (Teso),1989,1358.4,194,10,27.9,18.42,18
+Eastern lowlands (Teso),1990,1427.2,211,12,28.12,18.91,5
+Eastern lowlands (Teso),1991,1579.0,210,18,28.06,18.69,23
+Eastern lowlands (Teso),1992,1223.1,215,3,28.85,18.97,27
+Eastern lowlands (Teso),1993,1082.3,179,11,29.78,19.31,38
+Eastern lowlands (Teso),1994,1263.0,220,6,28.94,18.93,38
+Eastern lowlands (Teso),1995,1335.2,224,4,29.47,19.25,29
+Eastern lowlands (Teso),1996,1456.3,234,9,28.71,18.93,24
+Eastern lowlands (Teso),1997,1253.0,184,8,29.02,19.08,64
+Eastern lowlands (Teso),1998,1221.2,202,7,29.25,19.34,38
+Eastern lowlands (Teso),1999,1317.7,214,5,28.97,18.78,41
+Eastern lowlands (Teso),2000,1229.1,196,7,30.1,19.09,57
+Eastern lowlands (Teso),2001,1511.8,219,11,28.73,18.85,26
+Eastern lowlands (Teso),2002,1227.4,215,9,29.9,19.64,38
+Eastern lowlands (Teso),2003,1347.6,210,11,29.72,19.34,68
+Eastern lowlands (Teso),2004,1156.5,195,8,29.75,19.49,44
+Eastern lowlands (Teso),2005,1141.7,185,7,30.1,19.53,76
+Eastern lowlands (Teso),2006,1552.8,218,25,29.02,19.29,33
+Eastern lowlands (Teso),2007,1462.5,210,15,29.45,19.22,42
+Eastern lowlands (Teso),2008,1283.9,197,11,29.18,18.98,45
+Eastern lowlands (Teso),2009,1180.3,199,8,30.43,19.74,64
+Eastern lowlands (Teso),2010,1476.7,226,9,28.82,19.32,25
+Eastern lowlands (Teso),2011,1467.1,228,10,29.03,18.98,43
+Eastern lowlands (Teso),2012,1567.7,213,15,28.97,18.9,58
+Eastern lowlands (Teso),2013,1427.8,218,8,29.29,19.27,41
+Eastern lowlands (Teso),2014,1428.7,217,12,29.65,19.48,51
+Eastern lowlands (Teso),2015,1535.6,216,17,29.65,19.53,70
+Eastern lowlands (Teso),2016,1206.2,181,12,30.46,19.98,78
+Eastern lowlands (Teso),2017,1431.7,201,14,30.6,19.51,98
+Eastern lowlands (Teso),2018,1460.7,212,15,29.05,18.84,52
+Eastern lowlands (Teso),2019,1728.0,230,20,29.48,19.16,81
+Eastern lowlands (Teso),2020,1819.1,249,15,28.83,18.89,39
+Eastern lowlands (Teso),2021,1194.7,184,11,30.43,19.17,88
+Eastern lowlands (Teso),2022,1343.9,203,11,30.07,18.66,71
+Eastern lowlands (Teso),2023,1364.7,218,11,31.12,19.14,96
+Eastern lowlands (Teso),2024,1498.2,232,13,30.97,19.55,81
+Eastern lowlands (Teso),2025,1467.7,233,10,30.88,19.33,85
+Mt Elgon highlands,1981,1531.2,190,9,24.11,15.8,39
+Mt Elgon highlands,1982,1642.0,207,8,23.73,15.68,34
+Mt Elgon highlands,1983,1458.9,194,9,24.04,16.03,27
+Mt Elgon highlands,1984,1172.6,154,7,23.85,15.46,39
+Mt Elgon highlands,1985,1605.8,200,11,23.18,15.65,27
+Mt Elgon highlands,1986,1252.9,164,5,23.38,15.85,12
+Mt Elgon highlands,1987,1553.6,176,12,24.08,16.11,23
+Mt Elgon highlands,1988,1867.1,204,13,23.79,15.98,25
+Mt Elgon highlands,1989,1601.3,182,12,23.47,15.69,18
+Mt Elgon highlands,1990,1764.1,211,14,23.65,16.0,6
+Mt Elgon highlands,1991,1672.1,184,15,23.69,15.81,19
+Mt Elgon highlands,1992,1368.8,190,6,24.01,15.96,33
+Mt Elgon highlands,1993,1235.5,158,3,24.38,16.02,26
+Mt Elgon highlands,1994,1476.3,198,5,24.07,15.88,46
+Mt Elgon highlands,1995,1545.1,208,8,24.18,16.02,24
+Mt Elgon highlands,1996,1589.8,211,4,24.03,15.87,20
+Mt Elgon highlands,1997,1518.7,175,10,24.21,16.04,61
+Mt Elgon highlands,1998,1544.6,192,8,24.29,16.48,31
+Mt Elgon highlands,1999,1580.7,201,8,23.82,15.41,35
+Mt Elgon highlands,2000,1444.6,172,9,24.53,15.6,45
+Mt Elgon highlands,2001,1777.1,206,11,23.91,15.75,19
+Mt Elgon highlands,2002,1566.1,210,9,24.26,16.05,32
+Mt Elgon highlands,2003,1597.3,196,8,24.57,15.93,62
+Mt Elgon highlands,2004,1430.6,188,10,24.31,16.02,43
+Mt Elgon highlands,2005,1406.1,178,10,24.96,16.07,83
+Mt Elgon highlands,2006,1964.6,213,20,24.08,16.15,40
+Mt Elgon highlands,2007,1796.7,214,12,24.19,15.89,31
+Mt Elgon highlands,2008,1630.6,207,11,24.13,15.7,43
+Mt Elgon highlands,2009,1564.7,183,14,24.61,15.77,55
+Mt Elgon highlands,2010,1901.8,227,9,24.23,16.33,30
+Mt Elgon highlands,2011,1846.2,219,8,24.27,15.69,48
+Mt Elgon highlands,2012,1909.9,217,12,24.44,15.76,70
+Mt Elgon highlands,2013,1787.9,214,9,24.48,16.27,50
+Mt Elgon highlands,2014,1695.2,211,9,24.64,16.17,59
+Mt Elgon highlands,2015,1768.1,189,15,24.76,16.41,82
+Mt Elgon highlands,2016,1457.4,184,9,25.14,16.62,75
+Mt Elgon highlands,2017,1807.8,210,11,26.86,18.27,168
+Mt Elgon highlands,2018,1754.9,207,13,25.53,17.7,96
+Mt Elgon highlands,2019,2081.9,221,15,25.75,17.86,103
+Mt Elgon highlands,2020,2352.1,243,24,25.04,17.65,70
+Mt Elgon highlands,2021,1636.9,197,10,25.84,17.8,146
+Mt Elgon highlands,2022,1753.0,212,9,26.1,17.47,134
+Mt Elgon highlands,2023,1653.3,220,8,26.94,18.02,214
+Mt Elgon highlands,2024,1916.0,235,13,27.11,18.02,241
+Mt Elgon highlands,2025,1818.2,227,14,27.15,16.56,212
+South-East (Busoga and Tororo),1981,1357.6,192,13,26.41,18.11,35
+South-East (Busoga and Tororo),1982,1418.2,229,9,26.16,18.04,23
+South-East (Busoga and Tororo),1983,1244.8,215,11,26.53,18.53,32
+South-East (Busoga and Tororo),1984,1183.2,175,18,26.1,17.79,17
+South-East (Busoga and Tororo),1985,1337.5,219,11,25.78,17.66,32
+South-East (Busoga and Tororo),1986,1173.2,205,7,25.81,17.91,9
+South-East (Busoga and Tororo),1987,1259.6,213,10,26.54,18.41,25
+South-East (Busoga and Tororo),1988,1426.8,229,12,26.26,18.27,23
+South-East (Busoga and Tororo),1989,1401.4,211,12,26.06,17.83,18
+South-East (Busoga and Tororo),1990,1383.2,224,12,26.24,18.21,13
+South-East (Busoga and Tororo),1991,1429.5,232,15,26.27,18.24,23
+South-East (Busoga and Tororo),1992,1379.8,235,10,26.37,18.27,42
+South-East (Busoga and Tororo),1993,1260.9,210,13,26.6,18.31,17
+South-East (Busoga and Tororo),1994,1322.7,241,8,26.36,18.22,29
+South-East (Busoga and Tororo),1995,1367.3,237,7,26.59,18.41,26
+South-East (Busoga and Tororo),1996,1461.8,251,12,26.32,18.14,16
+South-East (Busoga and Tororo),1997,1403.3,216,14,26.7,18.43,65
+South-East (Busoga and Tororo),1998,1254.8,226,7,26.98,18.69,59
+South-East (Busoga and Tororo),1999,1405.6,231,13,26.47,18.01,41
+South-East (Busoga and Tororo),2000,1333.7,232,7,26.69,18.08,39
+South-East (Busoga and Tororo),2001,1486.1,242,10,26.33,18.01,16
+South-East (Busoga and Tororo),2002,1406.7,237,14,26.75,18.49,29
+South-East (Busoga and Tororo),2003,1398.7,221,13,27.0,18.37,73
+South-East (Busoga and Tororo),2004,1212.6,228,8,26.89,18.5,50
+South-East (Busoga and Tororo),2005,1150.2,202,10,27.31,18.59,84
+South-East (Busoga and Tororo),2006,1612.4,243,19,26.71,18.43,46
+South-East (Busoga and Tororo),2007,1515.2,238,15,26.76,18.38,38
+South-East (Busoga and Tororo),2008,1293.6,216,6,26.6,18.19,48
+South-East (Busoga and Tororo),2009,1196.7,214,9,27.09,18.61,61
+South-East (Busoga and Tororo),2010,1458.1,235,10,26.87,18.69,46
+South-East (Busoga and Tororo),2011,1485.0,246,16,26.67,18.35,52
+South-East (Busoga and Tororo),2012,1609.2,236,24,27.06,18.42,81
+South-East (Busoga and Tororo),2013,1314.7,216,8,26.96,18.49,52
+South-East (Busoga and Tororo),2014,1493.3,242,15,27.28,18.68,82
+South-East (Busoga and Tororo),2015,1656.4,235,16,27.64,18.77,99
+South-East (Busoga and Tororo),2016,1255.1,198,16,27.83,19.07,127
+South-East (Busoga and Tororo),2017,1502.0,224,16,28.07,18.08,119
+South-East (Busoga and Tororo),2018,1543.2,231,22,27.13,17.76,81
+South-East (Busoga and Tororo),2019,1947.2,258,25,27.5,18.17,97
+South-East (Busoga and Tororo),2020,2093.1,274,29,26.98,18.09,56
+South-East (Busoga and Tororo),2021,1325.4,221,10,27.68,17.84,122
+South-East (Busoga and Tororo),2022,1558.8,238,16,27.85,17.53,116
+South-East (Busoga and Tororo),2023,1594.2,251,17,28.42,17.96,164
+South-East (Busoga and Tororo),2024,1623.8,251,20,28.65,18.49,190
+South-East (Busoga and Tororo),2025,1432.9,241,14,28.55,18.09,174
+Lake Victoria Crescent,1981,1291.6,213,20,24.43,17.29,25
+Lake Victoria Crescent,1982,1321.8,242,13,24.25,17.2,29
+Lake Victoria Crescent,1983,1065.4,229,7,24.71,17.68,45
+Lake Victoria Crescent,1984,1238.0,222,18,23.83,16.88,18
+Lake Victoria Crescent,1985,1209.6,232,11,23.54,16.85,20
+Lake Victoria Crescent,1986,1242.8,225,18,23.67,17.12,3
+Lake Victoria Crescent,1987,1169.8,245,11,24.28,17.57,9
+Lake Victoria Crescent,1988,1292.3,249,13,24.04,17.47,10
+Lake Victoria Crescent,1989,1255.9,224,13,24.02,17.11,15
+Lake Victoria Crescent,1990,1189.9,235,12,24.07,17.39,8
+Lake Victoria Crescent,1991,1201.2,250,10,24.14,17.41,13
+Lake Victoria Crescent,1992,1097.3,239,6,24.34,17.36,31
+Lake Victoria Crescent,1993,1120.0,232,12,24.5,17.27,15
+Lake Victoria Crescent,1994,1284.5,249,14,24.25,17.37,22
+Lake Victoria Crescent,1995,1232.4,257,12,24.39,17.47,19
+Lake Victoria Crescent,1996,1361.3,267,9,24.31,17.3,14
+Lake Victoria Crescent,1997,1415.8,254,23,24.64,17.54,54
+Lake Victoria Crescent,1998,1198.1,233,13,24.85,17.98,40
+Lake Victoria Crescent,1999,1298.9,266,13,24.25,17.07,32
+Lake Victoria Crescent,2000,1230.9,255,7,24.53,17.11,26
+Lake Victoria Crescent,2001,1359.6,263,14,24.25,17.18,16
+Lake Victoria Crescent,2002,1241.3,258,13,24.67,17.55,23
+Lake Victoria Crescent,2003,1225.3,240,10,25.17,17.65,69
+Lake Victoria Crescent,2004,1134.1,241,8,25.2,17.82,69
+Lake Victoria Crescent,2005,1092.4,238,11,25.58,17.87,105
+Lake Victoria Crescent,2006,1229.0,250,13,24.87,17.7,58
+Lake Victoria Crescent,2007,1194.5,248,11,25.24,17.8,80
+Lake Victoria Crescent,2008,1145.6,236,8,24.97,17.5,66
+Lake Victoria Crescent,2009,1056.2,249,7,25.26,17.82,77
+Lake Victoria Crescent,2010,1273.4,250,15,24.9,17.85,43
+Lake Victoria Crescent,2011,1335.4,248,12,24.66,17.44,39
+Lake Victoria Crescent,2012,1434.2,266,13,25.12,17.61,78
+Lake Victoria Crescent,2013,1139.4,214,9,25.28,17.8,85
+Lake Victoria Crescent,2014,1206.6,237,9,25.53,17.81,105
+Lake Victoria Crescent,2015,1268.1,243,21,25.78,17.94,119
+Lake Victoria Crescent,2016,1176.9,208,16,26.15,18.33,157
+Lake Victoria Crescent,2017,1218.7,250,14,25.81,17.64,111
+Lake Victoria Crescent,2018,1366.2,249,20,25.32,17.33,89
+Lake Victoria Crescent,2019,1497.4,262,19,25.59,17.67,105
+Lake Victoria Crescent,2020,1478.7,260,27,25.77,17.91,111
+Lake Victoria Crescent,2021,1195.4,242,14,26.01,17.68,144
+Lake Victoria Crescent,2022,1355.9,254,15,26.39,17.58,165
+Lake Victoria Crescent,2023,1249.8,236,18,26.38,17.75,182
+Lake Victoria Crescent,2024,1191.6,245,8,26.77,18.15,210
+Lake Victoria Crescent,2025,1189.6,242,11,26.62,17.59,193
+Lake Albert Crescent,1981,1298.4,202,22,25.9,17.07,27
+Lake Albert Crescent,1982,1259.1,222,15,25.71,16.95,22
+Lake Albert Crescent,1983,998.6,203,4,26.24,17.47,53
+Lake Albert Crescent,1984,1255.0,191,26,25.99,16.78,32
+Lake Albert Crescent,1985,1331.7,224,15,25.38,16.6,33
+Lake Albert Crescent,1986,1243.4,208,19,25.4,16.83,8
+Lake Albert Crescent,1987,1181.9,221,12,25.97,17.41,19
+Lake Albert Crescent,1988,1244.0,218,11,25.96,17.24,21
+Lake Albert Crescent,1989,1224.4,213,13,25.7,16.81,24
+Lake Albert Crescent,1990,1209.1,227,11,25.79,17.06,6
+Lake Albert Crescent,1991,1184.5,217,14,25.81,17.16,24
+Lake Albert Crescent,1992,1112.3,219,6,26.0,17.2,47
+Lake Albert Crescent,1993,1142.1,210,13,26.08,17.15,20
+Lake Albert Crescent,1994,1196.9,231,11,25.92,17.17,36
+Lake Albert Crescent,1995,1154.0,235,10,26.1,17.38,19
+Lake Albert Crescent,1996,1202.3,242,9,25.86,17.14,18
+Lake Albert Crescent,1997,1177.8,231,12,26.26,17.44,57
+Lake Albert Crescent,1998,1064.3,203,10,26.78,17.75,60
+Lake Albert Crescent,1999,1180.8,237,11,26.17,16.9,44
+Lake Albert Crescent,2000,1103.1,220,7,26.17,17.13,36
+Lake Albert Crescent,2001,1327.2,251,13,26.01,17.03,20
+Lake Albert Crescent,2002,1179.4,235,6,26.54,17.53,31
+Lake Albert Crescent,2003,1215.7,224,7,26.7,17.53,60
+Lake Albert Crescent,2004,1114.3,217,7,26.69,17.59,53
+Lake Albert Crescent,2005,1131.4,222,9,27.2,17.73,85
+Lake Albert Crescent,2006,1143.5,224,9,26.44,17.51,39
+Lake Albert Crescent,2007,1118.7,229,8,26.53,17.51,46
+Lake Albert Crescent,2008,1018.0,207,8,26.36,17.18,46
+Lake Albert Crescent,2009,944.1,214,2,26.93,17.67,60
+Lake Albert Crescent,2010,1297.5,248,13,26.47,17.65,31
+Lake Albert Crescent,2011,1232.1,216,12,26.55,17.42,47
+Lake Albert Crescent,2012,1400.1,242,18,26.88,17.56,74
+Lake Albert Crescent,2013,1199.0,218,9,26.67,17.62,48
+Lake Albert Crescent,2014,1181.7,226,9,27.09,17.73,81
+Lake Albert Crescent,2015,1261.1,222,16,27.38,17.97,82
+Lake Albert Crescent,2016,1201.9,195,15,27.61,18.26,89
+Lake Albert Crescent,2017,1104.8,212,8,28.48,18.87,147
+Lake Albert Crescent,2018,1346.6,230,13,27.81,18.49,113
+Lake Albert Crescent,2019,1334.6,239,11,27.88,18.86,112
+Lake Albert Crescent,2020,1265.6,228,14,27.62,18.68,103
+Lake Albert Crescent,2021,1048.7,209,7,28.42,18.65,166
+Lake Albert Crescent,2022,1153.0,221,13,28.28,18.26,144
+Lake Albert Crescent,2023,1099.0,222,11,28.55,18.46,169
+Lake Albert Crescent,2024,1146.0,211,9,28.76,18.78,180
+Lake Albert Crescent,2025,1128.9,226,10,28.6,18.63,141
+Western highlands (Rwenzori),1981,1285.0,185,19,26.15,17.56,25
+Western highlands (Rwenzori),1982,1265.3,228,15,26.27,18.02,31
+Western highlands (Rwenzori),1983,1237.8,214,11,26.68,18.33,48
+Western highlands (Rwenzori),1984,1124.2,170,18,26.2,17.66,22
+Western highlands (Rwenzori),1985,1368.2,219,17,25.51,17.43,22
+Western highlands (Rwenzori),1986,1214.9,202,18,25.69,17.4,4
+Western highlands (Rwenzori),1987,1230.8,231,7,26.45,18.14,28
+Western highlands (Rwenzori),1988,1320.3,219,16,26.12,17.92,18
+Western highlands (Rwenzori),1989,1232.8,208,11,26.04,17.87,18
+Western highlands (Rwenzori),1990,1230.4,215,14,26.19,17.86,7
+Western highlands (Rwenzori),1991,1100.7,228,5,26.07,17.74,18
+Western highlands (Rwenzori),1992,1072.8,201,11,26.32,17.99,42
+Western highlands (Rwenzori),1993,1243.6,208,18,26.62,17.82,25
+Western highlands (Rwenzori),1994,1175.2,208,8,26.16,17.74,17
+Western highlands (Rwenzori),1995,1143.6,213,10,26.29,17.76,20
+Western highlands (Rwenzori),1996,1424.7,233,14,26.17,17.58,9
+Western highlands (Rwenzori),1997,1270.3,216,9,26.32,18.0,61
+Western highlands (Rwenzori),1998,1105.9,198,8,26.57,18.34,29
+Western highlands (Rwenzori),1999,1272.4,240,7,26.12,17.46,28
+Western highlands (Rwenzori),2000,1252.1,230,9,26.47,17.5,31
+Western highlands (Rwenzori),2001,1397.5,232,9,26.0,17.53,11
+Western highlands (Rwenzori),2002,1103.9,232,5,26.78,18.28,58
+Western highlands (Rwenzori),2003,1109.7,221,4,27.01,18.26,62
+Western highlands (Rwenzori),2004,1194.1,218,9,27.12,18.81,63
+Western highlands (Rwenzori),2005,1178.9,213,8,27.32,18.69,83
+Western highlands (Rwenzori),2006,1201.1,221,7,26.73,18.37,53
+Western highlands (Rwenzori),2007,1200.6,219,8,26.62,18.38,43
+Western highlands (Rwenzori),2008,1114.2,208,9,26.35,17.96,19
+Western highlands (Rwenzori),2009,1136.0,226,8,27.15,18.63,87
+Western highlands (Rwenzori),2010,1413.7,230,13,26.75,18.46,49
+Western highlands (Rwenzori),2011,1343.7,230,7,26.54,17.98,48
+Western highlands (Rwenzori),2012,1507.6,242,12,26.92,18.09,73
+Western highlands (Rwenzori),2013,1315.0,218,8,26.69,18.31,40
+Western highlands (Rwenzori),2014,1204.9,215,7,27.21,18.68,84
+Western highlands (Rwenzori),2015,1254.1,218,12,27.37,18.85,109
+Western highlands (Rwenzori),2016,1204.9,197,12,27.52,19.05,116
+Western highlands (Rwenzori),2017,1147.9,220,10,27.93,18.31,129
+Western highlands (Rwenzori),2018,1375.6,215,9,27.07,17.92,86
+Western highlands (Rwenzori),2019,1200.2,219,6,27.92,18.08,135
+Western highlands (Rwenzori),2020,1265.0,228,11,27.38,18.08,113
+Western highlands (Rwenzori),2021,1219.2,233,8,27.5,18.0,107
+Western highlands (Rwenzori),2022,1211.0,213,10,26.87,17.21,82
+Western highlands (Rwenzori),2023,1119.8,210,9,27.51,17.53,107
+Western highlands (Rwenzori),2024,1227.9,204,17,28.15,17.78,159
+Western highlands (Rwenzori),2025,1233.7,224,8,27.81,18.55,109
+Cattle corridor (central and southern drylands),1981,1203.2,205,20,26.99,17.96,35
+Cattle corridor (central and southern drylands),1982,1173.0,226,13,26.7,17.89,31
+Cattle corridor (central and southern drylands),1983,937.5,214,8,27.12,18.43,37
+Cattle corridor (central and southern drylands),1984,1048.7,203,16,26.73,17.56,32
+Cattle corridor (central and southern drylands),1985,1018.6,220,10,26.09,17.36,22
+Cattle corridor (central and southern drylands),1986,1044.5,213,11,26.28,17.66,7
+Cattle corridor (central and southern drylands),1987,1021.6,216,13,26.87,18.2,12
+Cattle corridor (central and southern drylands),1988,1132.5,229,12,26.78,18.07,24
+Cattle corridor (central and southern drylands),1989,1118.6,208,14,26.66,17.69,24
+Cattle corridor (central and southern drylands),1990,1027.7,222,12,26.47,17.91,2
+Cattle corridor (central and southern drylands),1991,1030.8,224,12,26.59,17.95,10
+Cattle corridor (central and southern drylands),1992,983.7,211,8,26.97,18.09,43
+Cattle corridor (central and southern drylands),1993,988.8,219,7,27.17,18.1,22
+Cattle corridor (central and southern drylands),1994,1088.8,231,11,26.86,18.05,37
+Cattle corridor (central and southern drylands),1995,1066.0,241,7,27.05,18.21,22
+Cattle corridor (central and southern drylands),1996,1182.9,245,11,26.85,18.03,17
+Cattle corridor (central and southern drylands),1997,1244.2,227,26,27.31,18.25,62
+Cattle corridor (central and southern drylands),1998,1044.7,206,11,27.43,18.46,32
+Cattle corridor (central and southern drylands),1999,1042.1,228,8,26.95,17.79,41
+Cattle corridor (central and southern drylands),2000,1057.3,242,6,27.5,17.94,45
+Cattle corridor (central and southern drylands),2001,1201.6,233,11,27.03,17.86,25
+Cattle corridor (central and southern drylands),2002,1062.9,230,11,27.36,18.24,26
+Cattle corridor (central and southern drylands),2003,1051.5,220,10,27.87,18.3,63
+Cattle corridor (central and southern drylands),2004,1014.2,225,11,27.82,18.49,57
+Cattle corridor (central and southern drylands),2005,962.0,217,8,28.28,18.55,82
+Cattle corridor (central and southern drylands),2006,1083.6,231,12,27.61,18.47,53
+Cattle corridor (central and southern drylands),2007,1062.0,224,9,27.67,18.39,47
+Cattle corridor (central and southern drylands),2008,987.8,216,6,27.6,18.1,54
+Cattle corridor (central and southern drylands),2009,896.8,222,4,28.32,18.64,70
+Cattle corridor (central and southern drylands),2010,1113.0,231,16,27.38,18.53,27
+Cattle corridor (central and southern drylands),2011,1188.0,225,14,27.53,18.2,49
+Cattle corridor (central and southern drylands),2012,1283.9,239,17,28.11,18.49,88
+Cattle corridor (central and southern drylands),2013,1035.2,213,8,27.8,18.48,57
+Cattle corridor (central and southern drylands),2014,1067.3,218,9,28.45,18.71,84
+Cattle corridor (central and southern drylands),2015,1073.6,226,16,28.79,18.87,105
+Cattle corridor (central and southern drylands),2016,1035.1,200,12,29.17,19.25,123
+Cattle corridor (central and southern drylands),2017,1072.7,228,9,29.03,18.46,118
+Cattle corridor (central and southern drylands),2018,1193.2,224,15,28.32,18.05,86
+Cattle corridor (central and southern drylands),2019,1275.3,247,19,28.69,18.62,103
+Cattle corridor (central and southern drylands),2020,1255.1,236,25,28.43,18.45,72
+Cattle corridor (central and southern drylands),2021,1005.9,226,8,29.26,18.29,139
+Cattle corridor (central and southern drylands),2022,1169.3,235,11,29.67,18.21,135
+Cattle corridor (central and southern drylands),2023,1052.1,215,15,30.0,18.46,180
+Cattle corridor (central and southern drylands),2024,1032.1,217,9,30.27,18.92,190
+Cattle corridor (central and southern drylands),2025,1021.0,218,11,29.89,18.57,145
+South-Western highlands,1981,1085.6,177,9,25.07,15.82,30
+South-Western highlands,1982,1085.1,193,7,25.17,15.81,40
+South-Western highlands,1983,1048.7,199,10,25.35,16.09,32
+South-Western highlands,1984,874.1,169,8,24.71,15.36,6
+South-Western highlands,1985,950.0,185,10,23.97,15.12,2
+South-Western highlands,1986,983.6,183,14,24.49,15.36,14
+South-Western highlands,1987,1057.8,214,10,25.2,16.02,25
+South-Western highlands,1988,1186.6,209,17,24.86,15.8,8
+South-Western highlands,1989,1040.4,191,12,24.72,15.54,19
+South-Western highlands,1990,1008.8,201,13,25.16,15.92,22
+South-Western highlands,1991,1024.5,213,13,24.78,15.69,12
+South-Western highlands,1992,955.5,188,8,25.23,15.94,33
+South-Western highlands,1993,1003.1,189,11,25.44,15.94,29
+South-Western highlands,1994,1064.5,188,13,24.81,15.56,10
+South-Western highlands,1995,1080.9,197,10,25.22,15.75,33
+South-Western highlands,1996,1164.3,230,7,24.93,15.41,20
+South-Western highlands,1997,1149.7,203,16,25.11,15.84,53
+South-Western highlands,1998,1099.7,207,8,25.34,16.18,20
+South-Western highlands,1999,971.4,200,5,25.17,15.55,42
+South-Western highlands,2000,1035.9,196,11,25.4,15.47,44
+South-Western highlands,2001,1260.6,233,14,24.97,15.5,19
+South-Western highlands,2002,1024.9,201,8,25.46,15.98,53
+South-Western highlands,2003,1051.5,213,4,26.1,16.34,93
+South-Western highlands,2004,1058.0,211,3,26.06,16.51,89
+South-Western highlands,2005,997.7,207,8,26.22,16.6,92
+South-Western highlands,2006,1172.9,202,9,25.61,16.22,71
+South-Western highlands,2007,1107.4,211,6,25.19,16.02,23
+South-Western highlands,2008,1005.1,190,13,25.24,15.8,22
+South-Western highlands,2009,954.6,195,10,25.82,16.29,76
+South-Western highlands,2010,1271.4,200,13,25.64,16.3,59
+South-Western highlands,2011,1303.4,230,13,25.07,15.76,33
+South-Western highlands,2012,1322.6,221,21,25.26,15.85,49
+South-Western highlands,2013,1138.0,198,11,25.54,16.14,70
+South-Western highlands,2014,1004.2,199,7,25.87,16.44,73
+South-Western highlands,2015,1061.1,202,15,25.91,16.4,101
+South-Western highlands,2016,1065.1,183,13,26.24,16.69,104
+South-Western highlands,2017,1013.6,190,6,25.18,15.2,38
+South-Western highlands,2018,1277.7,229,21,24.45,14.96,17
+South-Western highlands,2019,1030.6,213,12,24.81,15.17,21
+South-Western highlands,2020,1135.4,197,17,24.88,15.43,29
+South-Western highlands,2021,1049.2,205,12,25.0,15.06,38
+South-Western highlands,2022,1142.4,215,16,24.83,14.67,23
+South-Western highlands,2023,1092.4,194,12,25.44,14.96,59
+South-Western highlands,2024,1074.1,184,16,26.25,15.37,111
+South-Western highlands,2025,1093.3,205,12,25.57,15.22,73

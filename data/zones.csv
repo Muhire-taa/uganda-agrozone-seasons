@@ -1,0 +1,12 @@
+zone,pattern,fews_livelihood_zones,heavy_day_threshold_mm,annual_rain_trend_mm_per_decade,annual_rain_p,temperature_point
+West Nile,one main season,UG07 UG10 UG15 UG16,14.8,-10.5,0.481,"2.984, 31.149"
+Mid-Northern (Acholi and Lango),one main season,UG07 UG08 UG09 UG14 UG17 UG18 UG19,14.4,-0.02,1.0,"2.706, 32.439"
+Karamoja drylands,one main season,UG01 UG02 UG03 UG04 UG05 UG06,16.3,51.14,0.012,"2.769, 33.925"
+Eastern lowlands (Teso),one main season,UG20 UG21 UG31,15.9,48.15,0.012,"1.515, 33.982"
+Mt Elgon highlands,one main season,UG16 UG22,20.6,89.4,0.0,"1.12, 34.264"
+South-East (Busoga and Tororo),two seasons,UG25 UG30 UG32 UG33,14.7,60.57,0.0,"0.8, 33.369"
+Lake Victoria Crescent,two seasons,UG26 UG34 UG36,12.2,5.91,0.696,"0.21, 32.217"
+Lake Albert Crescent,two seasons,UG10 UG11 UG12 UG13 UG14,12.8,-16.79,0.171,"1.501, 31.465"
+Western highlands (Rwenzori),two seasons,UG16 UG27 UG28 UG29 UG37 UG38,13.9,-0.57,0.953,"0.411, 30.212"
+Cattle corridor (central and southern drylands),two seasons,UG23,11.6,6.59,0.469,"1.169, 32.424"
+South-Western highlands,two seasons,UG35 UG39 UG40,12.7,21.4,0.04,"-0.653, 30.228"
